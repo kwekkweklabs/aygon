@@ -1,3 +1,5 @@
+import { useAuth } from "@/providers/AuthProvider";
+
 export default function PlayPage() {
   return (
     <div className="min-h-screen w-full flex flex-col items-center">
