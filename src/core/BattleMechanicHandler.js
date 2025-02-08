@@ -7,17 +7,6 @@ export class BattleMechanicsHandler {
     this.aiProvider = aiProvider;
   }
 
-  static getActionEmoji(actionType) {
-    const emojis = {
-      [COMBAT_ACTIONS.ATTACK]: ['⚔️', '🗡️', '⚡'],
-      [COMBAT_ACTIONS.DEFEND]: ['🛡️', '🔰', '🏰'],
-      [COMBAT_ACTIONS.COUNTER]: ['↩️', '⚡', '💫'],
-      [COMBAT_ACTIONS.DODGE]: ['💨', '👻', '🌪️'],
-      [COMBAT_ACTIONS.SPECIAL]: ['✨', '💫', '⭐']
-    };
-    return emojis[actionType][Math.floor(Math.random() * emojis[actionType].length)];
-  }
-
   determineActionType(attacker, defender) {
     const actions = Object.values(COMBAT_ACTIONS);
     const specialMeter = this.context.getSpecialMeter(attacker.id);

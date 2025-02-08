@@ -1,5 +1,4 @@
 import { COMBAT_ACTIONS } from '../constants/types.js';
-import { BattleMechanicsHandler } from '../core/BattleMechanicHandler.js';
 
 export class AIActionGenerator {
   constructor(battleContext, aiProvider) {
@@ -16,26 +15,34 @@ export class AIActionGenerator {
       [COMBAT_ACTIONS.SPECIAL]: `${attacker.name} channels their power for a special technique against ${defender.name}.`
     };
 
-    return `You are a battle narrator. Given the following scenario, generate a short combat action.
-        
-        SCENARIO:
-        ${prompts[actionType]}
-        Character's abilities: ${attacker.description}
-        
-        REQUIREMENTS:
-        1. Respond with EXACTLY this format (including the || symbols): 
-          [Brief Action Description]||[Number between 8-22]||[1-3 Emojis separated by commas]
-        2. Action description must be 3-10 words
-        3. Description should incorporate the character's abilities
-        4. Emojis should represent the intensity/nature of the action (1-3 emojis max). Can be any emojis and can repeat
-        5. DO NOT use JSON format
-        
-        EXAMPLE GOOD RESPONSES:
-        "Summons ice daggers from shadows||15||❄️,⚔️,❄️"
-        "Creates molten shield barrier||12||🛡️"
-        "Unleashes devastating lightning storm||20||⚡️,⚡️,⚡️"
-        "Gracefully sidesteps attack||8||💨"
-      `;
+    return `You are a battle narrator who specializes in both epic and comedically overblown combat descriptions. Given the following scenario, generate a short combat action that makes ANY character seem impressive (whether they're a cosmic deity or a corporate middle manager).
+
+    SCENARIO:
+    ${prompts[actionType]}
+    Character's abilities: ${attacker.description}
+    
+    REQUIREMENTS:
+    1. Respond with EXACTLY this format (including the || symbols): 
+      [Brief Action Description]||[Number between 8-22]||[1-3 Emojis separated by commas]
+    2. Action description must be 5-15 words
+    3. Description should either:
+      - Use the character's actual abilities in an epic way, OR
+      - Transform mundane traits into hilarious combat powers
+    4. Power level should be entertaining regardless of character type:
+      - Magical beings can use their genuine powers
+      - Regular people get creative/absurd power interpretations
+      - Corporate roles become funny combat abilities
+    5. Emojis should represent the intensity/nature of the action (1-3 emojis max)
+    6. DO NOT use JSON format
+    
+    EXAMPLE GOOD RESPONSES:
+    "Summons ice daggers from shadows||15||❄️,⚔️,❄️"
+    "Weaponizes quarterly reports as throwing stars||18||📊,⚔️,💼"
+    "Unleashes devastating lightning storm||20||⚡️,⚡️,⚡️"
+    "Defeats enemy with aggressive powerpoint presentation||19||💼,💫,💥"
+    "Gracefully sidesteps attack with intern's agility||12||💨,👔"
+    "Launches surprise audit attack||16||📝,💰,💣"
+    `;
   }
 
   async getAIAction(attacker, defender, actionType) {

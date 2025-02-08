@@ -1,0 +1,119 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id      String  @id @default(cuid())
+  email   String  @unique
+  name    String?
+  address String?
+
+  heroes Hero[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Hero {
+  id          String @id @default(cuid())
+  name        String
+  description String @db.Text
+  image       String
+
+  // Relation
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  battlesAsHero1 Battle[] @relation("Hero1")
+  battlesAsHero2 Battle[] @relation("Hero2")
+
+  // Room relations
+  roomsAsHero1 Room[] @relation("RoomHero1")
+  roomsAsHero2 Room[] @relation("RoomHero2")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum BattleStatus {
+  PENDING
+  ONGOING
+  FINISHED
+}
+
+model Battle {
+  id           String       @id @default(cuid())
+  hero1Id      String
+  hero2Id      String
+  winnerHeroId String?
+  status       BattleStatus @default(PENDING)
+
+  // Updated relations with named relationships
+  hero1 Hero @relation("Hero1", fields: [hero1Id], references: [id])
+  hero2 Hero @relation("Hero2", fields: [hero2Id], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BattleState {
+  id String @id @default(cuid())
+
+  turnIndex Int
+  battleId  String
+
+  hero1State Json // { hp, specialMeter, statusEffects }
+  hero2State Json // { hp, specialMeter, statusEffects }
+
+  @@unique([turnIndex, battleId])
+}
+
+model BattleAction {
+  id String @id @default(cuid())
+
+  battleStateId String
+  actorId       Int // 1 or 2 (hero1 or hero2)
+
+  type   String // ATTACK, DEFEND, SPECIAL, ITEM
+  text   String
+  damage Int
+  emojis String[]
+
+  description     String?
+  judgeCommentary String?
+}
+
+enum RoomState {
+  WAITING
+  PLAYING
+  FINISHED
+}
+
+model Room {
+  id String @id @default(cuid())
+
+  name String
+
+  hero1Id String?
+  hero1   Hero?   @relation("RoomHero1", fields: [hero1Id], references: [id])
+
+  hero2Id String?
+  hero2   Hero?   @relation("RoomHero2", fields: [hero2Id], references: [id])
+
+  state           RoomState @default(WAITING)
+  currentBattleId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

@@ -1,0 +1,3636 @@
+[
+  {
+    "id": 1,
+    "actions": [],
+    "commentary": [],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 100,
+        "specialMeter": 0,
+        "statusEffects": []
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 100,
+        "specialMeter": 0,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 1,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024801876,
+    "statusEffects": {},
+    "specialMeters": {},
+    "timestamp": 1739024803931
+  },
+  {
+    "id": 2,
+    "actions": [],
+    "commentary": [],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 100,
+        "specialMeter": 0,
+        "statusEffects": []
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 100,
+        "specialMeter": 0,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 1,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024801876,
+    "statusEffects": {},
+    "specialMeters": {},
+    "timestamp": 1739024805932
+  },
+  {
+    "id": 3,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 99,
+        "specialMeter": 0,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 2,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 100,
+        "specialMeter": 15,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 2,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024806433,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 2,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 0,
+      "hero2": 15
+    },
+    "timestamp": 1739024807933
+  },
+  {
+    "id": 4,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 99,
+        "specialMeter": 0,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 2,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 100,
+        "specialMeter": 15,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 2,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024806433,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 2,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 0,
+      "hero2": 15
+    },
+    "timestamp": 1739024809934
+  },
+  {
+    "id": 5,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 99,
+        "specialMeter": 15,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 2,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 60,
+        "specialMeter": 15,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 3,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024810803,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 2,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 15,
+      "hero2": 15
+    },
+    "timestamp": 1739024811935
+  },
+  {
+    "id": 6,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 99,
+        "specialMeter": 15,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 2,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 60,
+        "specialMeter": 15,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 3,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024810803,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 2,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 15,
+      "hero2": 15
+    },
+    "timestamp": 1739024813935
+  },
+  {
+    "id": 7,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 35,
+        "specialMeter": 15,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 1,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 60,
+        "specialMeter": 30,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 4,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024815489,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 1,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 15,
+      "hero2": 30
+    },
+    "timestamp": 1739024815935
+  },
+  {
+    "id": 8,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 35,
+        "specialMeter": 15,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 1,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 60,
+        "specialMeter": 30,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 4,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024815489,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 1,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 15,
+      "hero2": 30
+    },
+    "timestamp": 1739024817935
+  },
+  {
+    "id": 9,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 35,
+        "specialMeter": 30,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 1,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 54,
+        "specialMeter": 30,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 5,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024819804,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 1,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 30,
+      "hero2": 30
+    },
+    "timestamp": 1739024819936
+  },
+  {
+    "id": 10,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 35,
+        "specialMeter": 30,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 1,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 54,
+        "specialMeter": 30,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 5,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024819804,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 1,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 30,
+      "hero2": 30
+    },
+    "timestamp": 1739024821937
+  },
+  {
+    "id": 11,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 35,
+        "specialMeter": 30,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 1,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 54,
+        "specialMeter": 30,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 5,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024819804,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 1,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 30,
+      "hero2": 30
+    },
+    "timestamp": 1739024823937
+  },
+  {
+    "id": 12,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 20,
+        "specialMeter": 30,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 0,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 44,
+        "specialMeter": 45,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 6,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024824623,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 0,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 30,
+      "hero2": 45
+    },
+    "timestamp": 1739024825937
+  },
+  {
+    "id": 13,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 20,
+        "specialMeter": 30,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 0,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 44,
+        "specialMeter": 45,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 6,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024824623,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 0,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 30,
+      "hero2": 45
+    },
+    "timestamp": 1739024827938
+  },
+  {
+    "id": 14,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 20,
+        "specialMeter": 30,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 0,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 44,
+        "specialMeter": 45,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 6,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024824623,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 0,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 30,
+      "hero2": 45
+    },
+    "timestamp": 1739024829938
+  },
+  {
+    "id": 15,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 20,
+        "specialMeter": 30,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 0,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 44,
+        "specialMeter": 45,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 6,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024824623,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 0,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 30,
+      "hero2": 45
+    },
+    "timestamp": 1739024831939
+  },
+  {
+    "id": 16,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      },
+      {
+        "timestamp": 1739024832303,
+        "action": {
+          "type": "COUNTER",
+          "text": "Conjures blockchain shield of impenetrable security",
+          "damage": 21,
+          "effect": "NONE",
+          "emojis": [
+            "🔗",
+            "🛡️",
+            "💻"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "judgeCommentary": "Vitalik Buterin's blockchain shield is an innovative tactic, converting defense into offense by leveraging cryptographic strength. While Aygon's elemental mastery might typically overpower conventional defenses, the unique properties of a blockchain barrier provide a stalwart stand. Despite its robustness, the setup time is significant and leaves Vitalik vulnerable if countered quickly. Given the current health disparity, it's a bold move to deter elemental assaults, though it lacks an immediate damage impact or debilitating special effects on the godlike Aygon. The shield buys Vitalik precious time, allowing for future strategic maneuvers."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      },
+      {
+        "timestamp": 1739024832303,
+        "text": "undefined Vitalik Buterin's COUNTER:\nConjures blockchain shield of impenetrable security\nCRITICAL HIT: 21 damage!"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 12,
+        "specialMeter": 45,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 0,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 23,
+        "specialMeter": 45,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 7,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024832303,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 0,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 45,
+      "hero2": 45
+    },
+    "timestamp": 1739024833941
+  },
+  {
+    "id": 17,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      },
+      {
+        "timestamp": 1739024832303,
+        "action": {
+          "type": "COUNTER",
+          "text": "Conjures blockchain shield of impenetrable security",
+          "damage": 21,
+          "effect": "NONE",
+          "emojis": [
+            "🔗",
+            "🛡️",
+            "💻"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "judgeCommentary": "Vitalik Buterin's blockchain shield is an innovative tactic, converting defense into offense by leveraging cryptographic strength. While Aygon's elemental mastery might typically overpower conventional defenses, the unique properties of a blockchain barrier provide a stalwart stand. Despite its robustness, the setup time is significant and leaves Vitalik vulnerable if countered quickly. Given the current health disparity, it's a bold move to deter elemental assaults, though it lacks an immediate damage impact or debilitating special effects on the godlike Aygon. The shield buys Vitalik precious time, allowing for future strategic maneuvers."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      },
+      {
+        "timestamp": 1739024832303,
+        "text": "undefined Vitalik Buterin's COUNTER:\nConjures blockchain shield of impenetrable security\nCRITICAL HIT: 21 damage!"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 12,
+        "specialMeter": 45,
+        "statusEffects": [
+          {
+            "type": "CONFUSION",
+            "duration": 0,
+            "damage": 0,
+            "modifier": 1
+          }
+        ]
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 23,
+        "specialMeter": 45,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 7,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024832303,
+    "statusEffects": {
+      "hero1": [
+        {
+          "type": "CONFUSION",
+          "duration": 0,
+          "damage": 0,
+          "modifier": 1
+        }
+      ],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 45,
+      "hero2": 45
+    },
+    "timestamp": 1739024835941
+  },
+  {
+    "id": 18,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      },
+      {
+        "timestamp": 1739024832303,
+        "action": {
+          "type": "COUNTER",
+          "text": "Conjures blockchain shield of impenetrable security",
+          "damage": 21,
+          "effect": "NONE",
+          "emojis": [
+            "🔗",
+            "🛡️",
+            "💻"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "judgeCommentary": "Vitalik Buterin's blockchain shield is an innovative tactic, converting defense into offense by leveraging cryptographic strength. While Aygon's elemental mastery might typically overpower conventional defenses, the unique properties of a blockchain barrier provide a stalwart stand. Despite its robustness, the setup time is significant and leaves Vitalik vulnerable if countered quickly. Given the current health disparity, it's a bold move to deter elemental assaults, though it lacks an immediate damage impact or debilitating special effects on the godlike Aygon. The shield buys Vitalik precious time, allowing for future strategic maneuvers."
+      },
+      {
+        "timestamp": 1739024837218,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes solar flares of pure light",
+          "damage": 9,
+          "effect": "NONE",
+          "emojis": [
+            "🌞",
+            "🔥",
+            "✨"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 18
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "judgeCommentary": "The solar flares unleashed by Aygon capture the raw power of elemental light, making this defensive maneuver unexpectedly offensive. Given Vitalik's human limitations despite his intellectual prowess, the pure energy can singe and overwhelm him, causing a burn effect. However, due to the move's defensive nature and setup time for solar alignment, its immediate impact is limited, allowing Vitalik a chance to strategize. Aygon's elemental mastery shines here, but the battle's outcome remains balanced on a knife's edge, with both combatants in a critical state."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      },
+      {
+        "timestamp": 1739024832303,
+        "text": "undefined Vitalik Buterin's COUNTER:\nConjures blockchain shield of impenetrable security\nCRITICAL HIT: 21 damage!"
+      },
+      {
+        "timestamp": 1739024837218,
+        "text": "undefined Aygon's DEFEND:\nUnleashes solar flares of pure light\nHit: 9 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 3,
+        "specialMeter": 45,
+        "statusEffects": []
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 18,
+        "specialMeter": 60,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 8,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024837218,
+    "statusEffects": {
+      "hero1": [],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 45,
+      "hero2": 60
+    },
+    "timestamp": 1739024837942
+  },
+  {
+    "id": 19,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      },
+      {
+        "timestamp": 1739024832303,
+        "action": {
+          "type": "COUNTER",
+          "text": "Conjures blockchain shield of impenetrable security",
+          "damage": 21,
+          "effect": "NONE",
+          "emojis": [
+            "🔗",
+            "🛡️",
+            "💻"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "judgeCommentary": "Vitalik Buterin's blockchain shield is an innovative tactic, converting defense into offense by leveraging cryptographic strength. While Aygon's elemental mastery might typically overpower conventional defenses, the unique properties of a blockchain barrier provide a stalwart stand. Despite its robustness, the setup time is significant and leaves Vitalik vulnerable if countered quickly. Given the current health disparity, it's a bold move to deter elemental assaults, though it lacks an immediate damage impact or debilitating special effects on the godlike Aygon. The shield buys Vitalik precious time, allowing for future strategic maneuvers."
+      },
+      {
+        "timestamp": 1739024837218,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes solar flares of pure light",
+          "damage": 9,
+          "effect": "NONE",
+          "emojis": [
+            "🌞",
+            "🔥",
+            "✨"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 18
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "judgeCommentary": "The solar flares unleashed by Aygon capture the raw power of elemental light, making this defensive maneuver unexpectedly offensive. Given Vitalik's human limitations despite his intellectual prowess, the pure energy can singe and overwhelm him, causing a burn effect. However, due to the move's defensive nature and setup time for solar alignment, its immediate impact is limited, allowing Vitalik a chance to strategize. Aygon's elemental mastery shines here, but the battle's outcome remains balanced on a knife's edge, with both combatants in a critical state."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      },
+      {
+        "timestamp": 1739024832303,
+        "text": "undefined Vitalik Buterin's COUNTER:\nConjures blockchain shield of impenetrable security\nCRITICAL HIT: 21 damage!"
+      },
+      {
+        "timestamp": 1739024837218,
+        "text": "undefined Aygon's DEFEND:\nUnleashes solar flares of pure light\nHit: 9 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 3,
+        "specialMeter": 45,
+        "statusEffects": []
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 18,
+        "specialMeter": 60,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 8,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024837218,
+    "statusEffects": {
+      "hero1": [],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 45,
+      "hero2": 60
+    },
+    "timestamp": 1739024839944
+  },
+  {
+    "id": 20,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      },
+      {
+        "timestamp": 1739024832303,
+        "action": {
+          "type": "COUNTER",
+          "text": "Conjures blockchain shield of impenetrable security",
+          "damage": 21,
+          "effect": "NONE",
+          "emojis": [
+            "🔗",
+            "🛡️",
+            "💻"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "judgeCommentary": "Vitalik Buterin's blockchain shield is an innovative tactic, converting defense into offense by leveraging cryptographic strength. While Aygon's elemental mastery might typically overpower conventional defenses, the unique properties of a blockchain barrier provide a stalwart stand. Despite its robustness, the setup time is significant and leaves Vitalik vulnerable if countered quickly. Given the current health disparity, it's a bold move to deter elemental assaults, though it lacks an immediate damage impact or debilitating special effects on the godlike Aygon. The shield buys Vitalik precious time, allowing for future strategic maneuvers."
+      },
+      {
+        "timestamp": 1739024837218,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes solar flares of pure light",
+          "damage": 9,
+          "effect": "NONE",
+          "emojis": [
+            "🌞",
+            "🔥",
+            "✨"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 18
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "judgeCommentary": "The solar flares unleashed by Aygon capture the raw power of elemental light, making this defensive maneuver unexpectedly offensive. Given Vitalik's human limitations despite his intellectual prowess, the pure energy can singe and overwhelm him, causing a burn effect. However, due to the move's defensive nature and setup time for solar alignment, its immediate impact is limited, allowing Vitalik a chance to strategize. Aygon's elemental mastery shines here, but the battle's outcome remains balanced on a knife's edge, with both combatants in a critical state."
+      },
+      {
+        "timestamp": 1739024841338,
+        "action": {
+          "type": "DODGE",
+          "text": "Mines virtual barrier with blockchain shield",
+          "damage": 3,
+          "effect": "NONE",
+          "emojis": [
+            "🛡️",
+            "💻",
+            "⚡️"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 0
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 18
+        },
+        "judgeCommentary": "Mining a blockchain shield to dodge an elemental god's attack is a creative gamble, but its complexity and setup time do not align well when at a critical 3% HP. Vitalik's tech-savvy abilities are overshadowed by Aygon's command over elements, limiting the effectiveness. In this dire scenario, dodging with tech against raw elemental power might buy a moment of respite, but isn't a strong counter against the forces of nature."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      },
+      {
+        "timestamp": 1739024832303,
+        "text": "undefined Vitalik Buterin's COUNTER:\nConjures blockchain shield of impenetrable security\nCRITICAL HIT: 21 damage!"
+      },
+      {
+        "timestamp": 1739024837218,
+        "text": "undefined Aygon's DEFEND:\nUnleashes solar flares of pure light\nHit: 9 damage"
+      },
+      {
+        "timestamp": 1739024841338,
+        "text": "undefined Vitalik Buterin's DODGE:\nMines virtual barrier with blockchain shield\nGlancing blow: 3 damage"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 0,
+        "specialMeter": 60,
+        "statusEffects": []
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 15,
+        "specialMeter": 60,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 9,
+    "battleStatus": "ACTIVE",
+    "lastUpdate": 1739024841338,
+    "statusEffects": {
+      "hero1": [],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 60,
+      "hero2": 60
+    },
+    "timestamp": 1739024841944
+  },
+  {
+    "id": 21,
+    "actions": [
+      {
+        "timestamp": 1739024806433,
+        "action": {
+          "type": "DODGE",
+          "text": "Creates a vortex of avocado lattes",
+          "damage": 1,
+          "effect": "CONFUSION",
+          "emojis": [
+            "🌪️",
+            "🍵",
+            "🥑"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 100
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 100
+        },
+        "judgeCommentary": "Aygon's whimsical move, generating a vortex of avocado lattes, may amuse more than it harms. Vitalik is bemused, but neither startled nor harmed significantly, with the move adding a splash of disruption rather than destruction."
+      },
+      {
+        "timestamp": 1739024810803,
+        "action": {
+          "type": "COUNTER",
+          "text": "Deploys smart contract shield for defense",
+          "damage": 12,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "🛡️",
+            "⚡️"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 99
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 72
+        },
+        "judgeCommentary": "Deploying a smart contract shield is a creative move, but in a battle against Aygon, an elemental god, it lacks immediate offensive power. While it may offer some protective advantage, its utility is limited against Aygon's elemental prowess. The move has more defensive properties and does not contribute to immediate damage, affecting its effectiveness in battle. A better strategy might involve offensive capabilities that exploit Aygon's vulnerabilities. Nevertheless, this tactical pause could give Vitalik a moment to rethink his strategy amidst the elemental chaos."
+      },
+      {
+        "timestamp": 1739024815489,
+        "action": {
+          "type": "COUNTER",
+          "text": "Unleashes a vortex of molten earth and shadow",
+          "damage": 37,
+          "effect": "NONE",
+          "emojis": [
+            "🌋",
+            "🌪️",
+            "🌑"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 72
+        },
+        "judgeCommentary": "\"Aygon harnesses his mastery over elements to craft a vortex of molten earth and shadow, a move not only damaging but also complex and time-consuming due to its dual nature. However, as an elemental god, Aygon efficiently manipulates these forces, striking decisively. While Vitalik may be a formidable mind in his domain, he lacks defenses against such arcane and elemental assaults. The fiery nature of the move ignites a lingering burn on Vitalik, searing through his defenses and reducing his HP while causing ongoing damage. Beware, Aygon — conserving your strength wisely will be crucial as the battle unfolds."
+      },
+      {
+        "timestamp": 1739024819804,
+        "action": {
+          "type": "DODGE",
+          "text": "Uses blockchain to teleport away from attack",
+          "damage": 6,
+          "effect": "NONE",
+          "emojis": [
+            "💻",
+            "✨"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 60
+        },
+        "judgeCommentary": "Vitalik attempts an innovative move by using blockchain for a Dodge teleport. While the idea is cutting-edge, the execution is slightly hindered by time and complexity with the vast power of an elemental god like Aygon. The impact is moderate, enhancing his evasive abilities but inflicts minimal damage. Vitalik cleverly avoids significant hits, however, the god's omnipotence makes it challenging to escape completely unscathed."
+      },
+      {
+        "timestamp": 1739024824623,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes tidal wave of burning lava",
+          "damage": 15,
+          "effect": "NONE",
+          "emojis": [
+            "🔥",
+            "🌊",
+            "🌋"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 35
+        },
+        "judgeCommentary": "Aygon's move is a clever blend of elemental mastery, harnessing both fire and earth to unleash a tidal wave of burning lava. Given his godly control over fire and earth, the setup is swift and effective. The lava's fiery nature capitalizes on Vitalik's human vulnerabilities, amplifying its impact. While the move is formidable, its defensive type focuses primarily on creating space and deterring further attacks rather than inflicting direct damage. Ultimately, the move leaves Vitalik with a burning hindrance to overcome, slowing him down and causing persistent damage over time."
+      },
+      {
+        "timestamp": 1739024832303,
+        "action": {
+          "type": "COUNTER",
+          "text": "Conjures blockchain shield of impenetrable security",
+          "damage": 21,
+          "effect": "NONE",
+          "emojis": [
+            "🔗",
+            "🛡️",
+            "💻"
+          ],
+          "crit": true,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 44
+        },
+        "judgeCommentary": "Vitalik Buterin's blockchain shield is an innovative tactic, converting defense into offense by leveraging cryptographic strength. While Aygon's elemental mastery might typically overpower conventional defenses, the unique properties of a blockchain barrier provide a stalwart stand. Despite its robustness, the setup time is significant and leaves Vitalik vulnerable if countered quickly. Given the current health disparity, it's a bold move to deter elemental assaults, though it lacks an immediate damage impact or debilitating special effects on the godlike Aygon. The shield buys Vitalik precious time, allowing for future strategic maneuvers."
+      },
+      {
+        "timestamp": 1739024837218,
+        "action": {
+          "type": "DEFEND",
+          "text": "Unleashes solar flares of pure light",
+          "damage": 9,
+          "effect": "NONE",
+          "emojis": [
+            "🌞",
+            "🔥",
+            "✨"
+          ],
+          "crit": false,
+          "miss": false
+        },
+        "attacker": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 18
+        },
+        "defender": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 12
+        },
+        "judgeCommentary": "The solar flares unleashed by Aygon capture the raw power of elemental light, making this defensive maneuver unexpectedly offensive. Given Vitalik's human limitations despite his intellectual prowess, the pure energy can singe and overwhelm him, causing a burn effect. However, due to the move's defensive nature and setup time for solar alignment, its immediate impact is limited, allowing Vitalik a chance to strategize. Aygon's elemental mastery shines here, but the battle's outcome remains balanced on a knife's edge, with both combatants in a critical state."
+      },
+      {
+        "timestamp": 1739024841338,
+        "action": {
+          "type": "DODGE",
+          "text": "Mines virtual barrier with blockchain shield",
+          "damage": 3,
+          "effect": "NONE",
+          "emojis": [
+            "🛡️",
+            "💻",
+            "⚡️"
+          ],
+          "crit": false,
+          "miss": true
+        },
+        "attacker": {
+          "id": "hero1",
+          "name": "Vitalik Buterin",
+          "hp": 0
+        },
+        "defender": {
+          "id": "hero2",
+          "name": "Aygon",
+          "hp": 18
+        },
+        "judgeCommentary": "Mining a blockchain shield to dodge an elemental god's attack is a creative gamble, but its complexity and setup time do not align well when at a critical 3% HP. Vitalik's tech-savvy abilities are overshadowed by Aygon's command over elements, limiting the effectiveness. In this dire scenario, dodging with tech against raw elemental power might buy a moment of respite, but isn't a strong counter against the forces of nature."
+      }
+    ],
+    "commentary": [
+      {
+        "timestamp": 1739024806433,
+        "text": "undefined Aygon's DODGE:\nCreates a vortex of avocado lattes\nGlancing blow: 1 damage"
+      },
+      {
+        "timestamp": 1739024810803,
+        "text": "undefined Vitalik Buterin's COUNTER:\nDeploys smart contract shield for defense\nCRITICAL HIT: 12 damage!"
+      },
+      {
+        "timestamp": 1739024815489,
+        "text": "undefined Aygon's COUNTER:\nUnleashes a vortex of molten earth and shadow\nCRITICAL HIT: 37 damage!"
+      },
+      {
+        "timestamp": 1739024819804,
+        "text": "undefined Vitalik Buterin's DODGE:\nUses blockchain to teleport away from attack\nGlancing blow: 6 damage"
+      },
+      {
+        "timestamp": 1739024824623,
+        "text": "undefined Aygon's DEFEND:\nUnleashes tidal wave of burning lava\nHit: 15 damage"
+      },
+      {
+        "timestamp": 1739024832303,
+        "text": "undefined Vitalik Buterin's COUNTER:\nConjures blockchain shield of impenetrable security\nCRITICAL HIT: 21 damage!"
+      },
+      {
+        "timestamp": 1739024837218,
+        "text": "undefined Aygon's DEFEND:\nUnleashes solar flares of pure light\nHit: 9 damage"
+      },
+      {
+        "timestamp": 1739024841338,
+        "text": "undefined Vitalik Buterin's DODGE:\nMines virtual barrier with blockchain shield\nGlancing blow: 3 damage"
+      },
+      {
+        "timestamp": 1739024842340,
+        "text": "🏆 FINAL BLOW: Aygon emerges victorious! 🏆"
+      }
+    ],
+    "heroes": {
+      "hero1": {
+        "id": "hero1",
+        "name": "Vitalik Buterin",
+        "description": "Ethereum Co founder",
+        "hp": 0,
+        "specialMeter": 60,
+        "statusEffects": []
+      },
+      "hero2": {
+        "id": "hero2",
+        "name": "Aygon",
+        "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+        "hp": 15,
+        "specialMeter": 60,
+        "statusEffects": []
+      }
+    },
+    "currentTurn": 10,
+    "battleStatus": "ENDED",
+    "lastUpdate": 1739024842340,
+    "statusEffects": {
+      "hero1": [],
+      "hero2": []
+    },
+    "specialMeters": {
+      "hero1": 60,
+      "hero2": 60
+    },
+    "winner": {
+      "name": "Aygon",
+      "hp": 15,
+      "description": "An elemental god, conquers all elements. A master of fire, water, earth, air, light, and darkness.",
+      "id": "hero2"
+    },
+    "timestamp": 1739024843946
+  }
+]
