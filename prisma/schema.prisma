@@ -76,6 +76,9 @@ model BattleState {
   hero1State Json // { hp, specialMeter, statusEffects }
   hero2State Json // { hp, specialMeter, statusEffects }
 
+  commentary String
+  action Json?
+
   @@unique([turnIndex, battleId])
 }
 

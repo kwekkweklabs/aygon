@@ -7,11 +7,32 @@ export class BattleMechanicsHandler {
   async processAction(action) {
     const battleState = this.context.getBattleState();
     const currentTurn = battleState.currentTurn;
+    const actorSpecialMeter = this.context.state.specialMeters[action.actor] || 0;
 
     console.log(`Processing action for turn ${currentTurn}`);
 
+    // Calculate hit chance and critical chance
+    const { isMiss, isCrit } = this.calculateHitAndCrit(action, actorSpecialMeter);
+    
+    // If it's a miss, return early with 0 damage
+    if (isMiss) {
+      return {
+        ...action,
+        damage: 0,
+        effect: 'NONE',
+        miss: true,
+        crit: false,
+        judgeCommentary: 'The attack misses completely!'
+      };
+    }
+
     const judgeAnalysis = await this.getJudgeAnalysis(action, battleState);
     let finalDamage = Math.floor(action.basePower * judgeAnalysis.multiplier);
+
+    // Apply critical hit modifier
+    if (isCrit) {
+      finalDamage = Math.floor(finalDamage * 1.5);
+    }
 
     // Process existing effects
     this.processStatusEffects(action.actor, currentTurn);
@@ -19,7 +40,22 @@ export class BattleMechanicsHandler {
 
     finalDamage = this.calculateFinalDamage(finalDamage, action, battleState, statusEffects);
 
-    this.context.updateSpecialMeter(action.actor, 15);
+    // Handle special meter
+    if (action.actionType === 'SPECIAL') {
+      if (actorSpecialMeter >= 100) {
+        // Special move gets 50% bonus damage when meter is full
+        finalDamage = Math.floor(finalDamage * 1.5);
+        // Drain special meter
+        this.context.updateSpecialMeter(action.actor, -100);
+      } else {
+        // Reduce damage if special is used without full meter
+        finalDamage = Math.floor(finalDamage * 0.7);
+      }
+    } else {
+      // Normal special meter increase for regular moves
+      this.context.updateSpecialMeter(action.actor, 15);
+    }
+
     this.context.addToHistory(action);
 
     // Add new effect if applicable
@@ -31,14 +67,8 @@ export class BattleMechanicsHandler {
         damage: this.getEffectDamage(judgeAnalysis.effect),
         modifier: this.getEffectModifier(judgeAnalysis.effect),
         turnAdded: currentTurn,
-        validUntilTurn: currentTurn + 2  // Effect expires after 2 turns
+        validUntilTurn: currentTurn + 2
       };
-
-      console.log('Adding new effect:', {
-        effect: newEffect,
-        currentTurn,
-        expiresAt: newEffect.validUntilTurn
-      });
 
       this.addUniqueStatusEffect(targetActor, newEffect, currentTurn);
     }
@@ -47,8 +77,47 @@ export class BattleMechanicsHandler {
       ...action,
       damage: finalDamage,
       effect: judgeAnalysis.effect,
-      judgeCommentary: judgeAnalysis.commentary
+      miss: false,
+      crit: isCrit,
+      judgeCommentary: isCrit 
+        ? `${judgeAnalysis.commentary} A critical hit!` 
+        : judgeAnalysis.commentary
     };
+  }
+
+  calculateHitAndCrit(action, specialMeter) {
+    let baseHitChance = 0.9; // 90% base hit chance
+    let baseCritChance = 0.1; // 10% base crit chance
+
+    // Modify hit chance based on action type
+    switch (action.actionType) {
+      case 'SPECIAL':
+        baseHitChance = 0.95; // Special moves are more accurate
+        baseCritChance = 0.15; // And have higher crit chance
+        break;
+      case 'COUNTER':
+        baseHitChance = 0.85; // Counters are slightly harder to land
+        baseCritChance = 0.12; // But have increased crit chance
+        break;
+      case 'ATTACK':
+        // Standard chances
+        break;
+      case 'DEFEND':
+        baseHitChance = 1; // Defensive moves always hit
+        baseCritChance = 0; // But cannot crit
+        break;
+    }
+
+    // Increase crit chance if special meter is high
+    if (specialMeter >= 50) {
+      baseCritChance += (specialMeter - 50) / 200; // Up to +25% at full meter
+    }
+
+    // Determine hit and crit
+    const isMiss = Math.random() > baseHitChance;
+    const isCrit = !isMiss && Math.random() < baseCritChance;
+
+    return { isMiss, isCrit };
   }
 
   processStatusEffects(actorId, currentTurn) {
