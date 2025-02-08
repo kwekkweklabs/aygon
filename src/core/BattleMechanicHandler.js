@@ -1,52 +1,46 @@
-import { COMBAT_ACTIONS } from '../constants/types.js';
-import { EFFECTS } from '../constants/types.js';
-
 export class BattleMechanicsHandler {
   constructor(battleContext, aiProvider) {
     this.context = battleContext;
     this.aiProvider = aiProvider;
   }
 
-  determineActionType(attacker, defender) {
-    const actions = Object.values(COMBAT_ACTIONS);
-    const specialMeter = this.context.getSpecialMeter(attacker.id);
+  async processAction(action) {
+    const battleState = this.context.getBattleState();
+    const currentTurn = battleState.currentTurn;
 
-    if (specialMeter >= 100) return COMBAT_ACTIONS.SPECIAL;
-    if (attacker.hp < 30 && Math.random() < 0.4) return COMBAT_ACTIONS.DEFEND;
-    if (this.context.state.lastAction?.type === COMBAT_ACTIONS.ATTACK && Math.random() < 0.3)
-      return COMBAT_ACTIONS.COUNTER;
-    if (this.context.state.combo > 2 && Math.random() < 0.4) return COMBAT_ACTIONS.DODGE;
+    console.log(`Processing action for turn ${currentTurn}`);
 
-    return actions[Math.floor(Math.random() * (actions.length - 1))];
-  }
+    const judgeAnalysis = await this.getJudgeAnalysis(action, battleState);
+    let finalDamage = Math.floor(action.basePower * judgeAnalysis.multiplier);
 
-  async processAction(action, attacker, defender) {
-    const judgeAnalysis = await this.getJudgeAnalysis(action, attacker, defender);
-    let finalDamage = Math.floor(action.damage * judgeAnalysis.multiplier);
+    // Process existing effects
+    this.processStatusEffects(action.actor, currentTurn);
+    const statusEffects = this.getActiveEffects(action.actor, currentTurn);
 
-    const statusEffects = this.context.processStatusEffects(defender.id);
-    finalDamage += statusEffects.damage;
-    finalDamage = Math.floor(finalDamage * statusEffects.modifier);
+    finalDamage = this.calculateFinalDamage(finalDamage, action, battleState, statusEffects);
 
-    if (action.type === COMBAT_ACTIONS.ATTACK) {
-      const combo = this.context.updateCombo(true);
-      if (combo > 2) {
-        finalDamage *= 1.2;
-      }
-    } else {
-      this.context.updateCombo(false);
-    }
+    this.context.updateSpecialMeter(action.actor, 15);
+    this.context.addToHistory(action);
 
-    this.context.updateSpecialMeter(attacker.id, 15);
-    this.context.setLastAction(action);
-
+    // Add new effect if applicable
     if (judgeAnalysis.effect !== 'NONE') {
-      this.context.addStatusEffect(defender.id, {
+      const targetActor = Object.keys(battleState.heroes).find(id => id !== action.actor);
+      const newEffect = {
         type: judgeAnalysis.effect,
         duration: 2,
         damage: this.getEffectDamage(judgeAnalysis.effect),
-        modifier: this.getEffectModifier(judgeAnalysis.effect)
+        modifier: this.getEffectModifier(judgeAnalysis.effect),
+        turnAdded: currentTurn,
+        validUntilTurn: currentTurn + 2  // Effect expires after 2 turns
+      };
+
+      console.log('Adding new effect:', {
+        effect: newEffect,
+        currentTurn,
+        expiresAt: newEffect.validUntilTurn
       });
+
+      this.addUniqueStatusEffect(targetActor, newEffect, currentTurn);
     }
 
     return {
@@ -55,6 +49,198 @@ export class BattleMechanicsHandler {
       effect: judgeAnalysis.effect,
       judgeCommentary: judgeAnalysis.commentary
     };
+  }
+
+  processStatusEffects(actorId, currentTurn) {
+    console.log(`Processing effects for ${actorId} at turn ${currentTurn}`);
+
+    let effects = this.context.state.statusEffects[actorId] || [];
+
+    console.log('Before processing:', effects);
+
+    // Filter out expired effects using validUntilTurn
+    effects = effects.filter(effect => {
+      const isActive = currentTurn < effect.validUntilTurn;
+
+      console.log(`Effect ${effect.type} status:`, {
+        currentTurn,
+        validUntilTurn: effect.validUntilTurn,
+        isActive,
+        turnsRemaining: effect.validUntilTurn - currentTurn
+      });
+
+      return isActive;
+    });
+
+    console.log('After processing:', effects);
+
+    // Update the effects in context
+    this.context.state.statusEffects[actorId] = effects;
+    return effects;
+  }
+
+  addUniqueStatusEffect(actorId, newEffect, currentTurn) {
+    console.log(`Adding effect for ${actorId} at turn ${currentTurn}`);
+
+    let effects = this.context.state.statusEffects[actorId] || [];
+
+    // Remove existing effect of the same type
+    effects = effects.filter(effect => effect.type !== newEffect.type);
+
+    // Ensure all required fields are set
+    if (!newEffect.validUntilTurn) {
+      newEffect.validUntilTurn = currentTurn + newEffect.duration;
+    }
+
+    // Add new effect
+    effects.push(newEffect);
+
+    console.log('Updated effects array:', effects);
+
+    // Update effects in context
+    this.context.state.statusEffects[actorId] = effects;
+  }
+
+  getActiveEffects(actorId, currentTurn) {
+    const effects = this.context.state.statusEffects[actorId] || [];
+
+    console.log(`Getting active effects for ${actorId} at turn ${currentTurn}`);
+
+    // Filter effects using validUntilTurn
+    const activeEffects = effects.filter(effect => currentTurn < effect.validUntilTurn);
+
+    console.log('Active effects:', activeEffects);
+
+    // Calculate cumulative effects
+    return activeEffects.reduce((acc, effect) => ({
+      damage: acc.damage + effect.damage,
+      modifier: acc.modifier * effect.modifier
+    }), { damage: 0, modifier: 1.0 });
+  }
+
+  async getJudgeAnalysis(action, battleState) {
+    const prompt = `As a battle judge, analyze this combat move considering the full context:
+
+CURRENT BATTLE STATE:
+Actor: ${battleState.heroes[action.actor].name}
+Actor HP: ${battleState.heroes[action.actor].health}%
+Action Type: ${action.actionType}
+Description: ${action.description}
+Base Power: ${action.basePower}
+Tactical Reasoning: ${action.tacticalReasoning}
+
+Previous Actions: ${this.formatPreviousActions(battleState.actionHistory)}
+Active Effects: ${this.formatActiveEffects(battleState.statusEffects)}
+
+REQUIREMENTS:
+Respond in EXACTLY this format (including the || symbols):
+[Effectiveness Multiplier (0.1-2.0)]||[Special Effect (NONE/STUN/BURN/FREEZE/BLEED/WEAKNESS)]||[Judge Commentary]
+
+Consider:
+- Move effectiveness given battle context
+- Previous actions and their impact
+- Status effects and positioning
+- Character abilities and limitations
+
+Example Good Responses:
+1.2||BURN||A powerful strike that leaves the opponent vulnerable to fire damage.
+0.8||NONE||The defensive stance reduces the attack's impact but provides tactical advantage.
+1.5||STUN||Perfect timing exploits the opponent's opening for a devastating hit.
+0.6||WEAKNESS||The cautious approach limits damage but applies a strategic debuff.`;
+
+    try {
+      const response = await this.aiProvider.generate(prompt);
+
+      const cleanResponse = response
+        .replace(/^["'{[\s]+|["'}]\s*$/g, '')
+        .replace(/[\n\r]+/g, ' ')
+        .trim();
+
+      const [multiplierStr, effect, commentary] = cleanResponse.split('||').map(part => part.trim());
+
+      const multiplier = this.validateMultiplier(parseFloat(multiplierStr));
+      const validatedEffect = this.validateEffect(effect);
+
+      return {
+        multiplier,
+        effect: validatedEffect,
+        commentary: commentary || 'The judge observes the exchange carefully.'
+      };
+    } catch (error) {
+      console.error('Judge Analysis Error:', error);
+      return {
+        multiplier: 1.0,
+        effect: 'NONE',
+        commentary: 'The judge maintains balance in the battle.'
+      };
+    }
+  }
+
+  validateMultiplier(multiplier) {
+    if (isNaN(multiplier)) return 1.0;
+    return Math.min(2.0, Math.max(0.1, multiplier));
+  }
+
+  validateEffect(effect) {
+    const validEffects = ['NONE', 'BURN', 'FREEZE', 'STUN', 'BLEED', 'WEAKNESS'];
+    const upperEffect = (effect || '').toUpperCase();
+    return validEffects.includes(upperEffect) ? upperEffect : 'NONE';
+  }
+
+  formatPreviousActions(history) {
+    if (!history || history.length === 0) return 'None';
+    return history.slice(-3).map(action =>
+      `${action.actor}: ${action.actionType} - ${action.description}`
+    ).join(' → ');
+  }
+
+  formatActiveEffects(effects) {
+    if (!effects) return 'None';
+    const currentTurn = this.context.state.currentTurn;
+
+    return Object.entries(effects)
+      .map(([heroId, effectList]) => {
+        const activeEffects = effectList.filter(effect => {
+          const turnsLeft = effect.duration - (currentTurn - effect.turnAdded);
+          return turnsLeft > 0;
+        });
+
+        return `${heroId}: ${activeEffects.length > 0 ?
+          activeEffects.map(e => {
+            const turnsLeft = e.duration - (currentTurn - e.turnAdded);
+            return `${e.type}(${turnsLeft} turns left)`;
+          }).join(', ')
+          : 'None'}`;
+      }).join(' | ');
+  }
+
+  calculateFinalDamage(baseDamage, action, battleState, statusEffects) {
+    let damage = baseDamage;
+
+    // Apply status effect modifiers
+    damage += statusEffects.damage;
+    damage = Math.floor(damage * statusEffects.modifier);
+
+    // Apply combo system
+    if (action.targetType === 'OFFENSIVE') {
+      const combo = this.context.updateCombo(true);
+      if (combo > 2) damage *= 1.2;
+    } else {
+      this.context.updateCombo(false);
+    }
+
+    // Consider defensive actions
+    const lastAction = battleState.lastAction;
+    if (lastAction && lastAction.actor !== action.actor) {
+      if (lastAction.actionType === 'DEFEND' && action.targetType === 'OFFENSIVE') {
+        damage *= 0.5;
+      }
+      if (lastAction.actionType === 'COUNTER' && action.targetType === 'OFFENSIVE') {
+        damage *= 0.7;
+      }
+    }
+
+    return Math.floor(Math.max(1, damage));
   }
 
   getEffectDamage(effect) {
@@ -77,64 +263,5 @@ export class BattleMechanicsHandler {
       WEAKNESS: 0.75
     };
     return modifiers[effect] || 1.0;
-  }
-
-  async getJudgeAnalysis(action, attacker, defender) {
-    const prompt = `As a wise and fair battle judge, analyze this combat move and determine its true effects:
-
-    CURRENT BATTLE STATE:
-    - Attacker: ${attacker.name} (${attacker.description})
-    - Defender: ${defender.name} (${defender.description})
-    - Attacker HP: ${attacker.hp}%
-    - Defender HP: ${defender.hp}%
-    - Last Action Type: ${this.context.state.lastAction?.type || 'None'}
-    - Current Combo: ${this.context.state.combo}
-
-    PROPOSED MOVE:
-    Type: ${action.type}
-    Description: ${action.text}
-    Base Damage: ${action.damage}
-
-    JUDGE REQUIREMENTS:
-    1. Analyze the move's true effectiveness based on:
-      - Move complexity and setup time
-      - Character abilities and limitations
-      - Current battle situation
-      - Natural counters and vulnerabilities
-    2. Provide commentary that explains the move's effects
-    3. Balance powerful moves with realistic limitations
-    4. Realistically simulate the move's impact on the battle
-    5. The attack can have special effects like ${EFFECTS.join(', ')}
-    6. Keep the commentary concise and relevant, avoid unnecessary details and keep it short and simple yet fun
-
-    Respond in this format:
-    [Effectiveness Multiplier (0.1-2.0)]||[Special Effect (NONE/STUN/BURN/FREEZE/etc)]||[Judge Commentary]`;
-
-    try {
-      const response = await this.aiProvider.generate(prompt);
-      let [multiplier, effect, commentary] = response
-        .replace(/^["'{[\s]+|["'}]\s*$/g, '')
-        .split('||')
-        .map(part => part.trim());
-
-      multiplier = parseFloat(multiplier) || 1.0;
-      multiplier = Math.min(2.0, Math.max(0.1, multiplier));
-
-      const validEffects = EFFECTS;
-      effect = validEffects.includes(effect) ? effect : 'NONE';
-
-      return {
-        multiplier,
-        effect,
-        commentary: commentary || 'The judge observes the exchange carefully.'
-      };
-    } catch (error) {
-      console.error('Judge Analysis Error:', error);
-      return {
-        multiplier: 1.0,
-        effect: 'NONE',
-        commentary: 'The judge maintains balance in the battle.'
-      };
-    }
   }
 }

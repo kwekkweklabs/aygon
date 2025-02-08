@@ -2,172 +2,194 @@ import { BattleManager } from "./BattleManager.js";
 
 export class BattleRegistry {
   constructor() {
-    this.activeBattles = new Map();
-    this.battleStates = new Map();
-    this.stateChangeListeners = new Set();
-    this.pollIntervals = new Map();
-    this.lastPolledStates = new Map();
-    console.log('BattleRegistry initialized');
+      this.battles = new Map();
+      this.battleStates = new Map();
   }
 
-  createBattle(battleId, heroes, aiProvider, options = {}) {
-    if (this.activeBattles.has(battleId)) {
-      throw new Error(`Battle with ID ${battleId} already exists`);
-    }
+  createBattle(battleId, heroes, aiProvider, config = {}) {
+      const battle = new BattleManager(heroes, aiProvider, {
+          ...config,
+          battleId,
+          onStateUpdate: (id, state) => this.updateBattleState(id, state)
+      });
 
-    const battle = new BattleManager(heroes, aiProvider, {
-      visualizeMode: 'list',
-      turnDelay: options.turnDelay || 3000,
-      battleId,
-      onStateUpdate: (battleId, state) => this.updateBattleState(battleId, state)
-    });
+      this.battles.set(battleId, battle);
+      const initialState = {
+          battleStatus: 'INITIALIZED',
+          currentTurn: 0,
+          heroes: {},
+          commentary: [],
+          actions: [],
+          lastAction: null
+      };
+      
+      this.battleStates.set(battleId, initialState);
+      console.log('\n=== BATTLE CREATED ===');
+      console.log(`Battle ID: ${battleId}`);
+      console.log('Initial State:', initialState);
 
-    this.activeBattles.set(battleId, battle);
-    this.battleStates.set(battleId, {
-      status: 'INITIALIZED',
-      lastUpdate: new Date(),
-      stateHistory: [],
-      currentStateId: 0
-    });
-
-    // Start polling immediately upon battle creation
-    this.startPolling(battleId);
-
-    return battle;
+      return battle;
   }
 
-  hasStateChangedInPoll(oldState, newState) {
-    if (!oldState || !newState) {
-      // console.log('State change reason: Initial state or missing state');
-      return true;
-    }
-
-    if (oldState.lastUpdate === newState.lastUpdate) {
-      // console.log('No change detected - same lastUpdate timestamp');
-      return false;
-    }
-
-    return true;
+  getBattle(battleId) {
+      return this.battles.get(battleId);
   }
-
-  startPolling(battleId) {
-    if (this.pollIntervals.has(battleId)) {
-      clearInterval(this.pollIntervals.get(battleId));
-    }
-
-    const interval = setInterval(() => {
-      const battle = this.activeBattles.get(battleId);
-      if (!battle) {
-        this.stopPolling(battleId);
-        return;
-      }
-
-      const currentState = battle.getBattleState();
-      const lastPolledState = this.lastPolledStates.get(battleId);
-
-      console.log(`\n[BATTLE UPDATE] Battle ${battleId} - ${new Date().toISOString()}`);
-
-      if (currentState && this.hasStateChangedInPoll(lastPolledState, currentState)) {
-        console.log('State changed:', {
-          battleId: battleId,
-          state: currentState
-        });
-
-        console.log('lastAction:', currentState.actions[currentState.actions.length - 1]);
-
-        // console.log(currentState);
-        this.lastPolledStates.set(battleId, JSON.parse(JSON.stringify(currentState)));
-
-        if (currentState.battleStatus === 'ENDED') {
-          this.handleBattleEnd(battleId);
-        }
-      } else {
-        console.log('No state changes detected');
-      }
-    }, 2000);
-
-    this.pollIntervals.set(battleId, interval);
-  }
-
-  stopPolling(battleId) {
-    const interval = this.pollIntervals.get(battleId);
-    if (interval) {
-      clearInterval(interval);
-      this.pollIntervals.delete(battleId);
-      this.lastPolledStates.delete(battleId);
-      console.log(`[POLLING] Stopped polling for battle ${battleId}`);
-    }
-  }
-
 
   updateBattleState(battleId, newState) {
-    const battleState = this.battleStates.get(battleId);
-    if (!battleState) return;
+      const currentState = this.battleStates.get(battleId) || {
+          battleStatus: 'INITIALIZED',
+          currentTurn: 0,
+          heroes: {},
+          commentary: [],
+          actions: [],
+          lastAction: null
+      };
 
-    const stateWithMetadata = {
-      id: ++battleState.currentStateId,
-      timestamp: new Date(),
-      ...newState
-    };
+      console.log(`\n=== BATTLE UPDATE [${battleId}] ===`);
+      console.log('Timestamp:', new Date().toISOString());
+      console.log('Current Turn:', newState.currentTurn);
+      console.log('Battle Status:', newState.battleStatus);
 
-    const lastState = battleState.stateHistory[battleState.stateHistory.length - 1];
-    if (this.hasStateChanged(lastState, stateWithMetadata)) {
-      battleState.stateHistory.push(stateWithMetadata);
-      battleState.lastUpdate = new Date();
-      this.emitStateUpdate(battleId, stateWithMetadata);
-    }
-  }
+      // Log hero state changes
+      if (newState.heroStates) {
+          console.log('\n--- Hero States ---', newState.heroStates);
+          Object.entries(newState.heroStates).forEach(([heroId, hero]) => {
+              const oldHp = currentState.heroStates?.[heroId]?.hp;
+              const newHp = hero.hp;
+              console.log(`${hero.name}:`, {
+                  hp: `${oldHp || 100}% → ${newHp}%`,
+                  status: this.getHeroStatusDescription(newHp)
+              });
+          });
 
-  hasStateChanged(oldState, newState) {
-    if (!oldState) return true;
-
-    const relevantProps = ['heroStates', 'battleStatus', 'currentTurn'];
-    return relevantProps.some(prop =>
-      JSON.stringify(oldState[prop]) !== JSON.stringify(newState[prop])
-    );
-  }
-
-  handleBattleEnd(battleId) {
-    const battleState = this.battleStates.get(battleId);
-    if (!battleState) return;
-
-    battleState.status = 'ENDED';
-    this.stopPolling(battleId);
-    this.activeBattles.delete(battleId);
-
-    const finalState = {
-      ...battleState.stateHistory[battleState.stateHistory.length - 1],
-      finalState: true
-    };
-
-    this.emitStateUpdate(battleId, finalState);
-    console.log(`[BATTLE END] Battle ${battleId} has concluded`);
-  }
-
-  emitStateUpdate(battleId, state) {
-    const eventData = { battleId, state, timestamp: new Date().toISOString() };
-    this.stateChangeListeners.forEach(listener => {
-      try {
-        listener(eventData);
-      } catch (error) {
-        console.error('Error in state change listener:', error);
+          console.log("Hero1 Effects: ", newState.heroStates.hero1.effects);
+          console.log("Hero2 Effects: ", newState.heroStates.hero2.effects);
       }
-    });
+
+      // Track new commentary
+      if (newState.commentary?.length > currentState.commentary?.length) {
+          const newCommentary = newState.commentary[newState.commentary.length - 1];
+          console.log('\n--- New Commentary ---');
+          console.log(newCommentary);
+          
+          // Create an action record
+          const action = {
+              turn: newState.currentTurn,
+              timestamp: new Date().toISOString(),
+              commentary: newCommentary,
+              battleStatus: newState.battleStatus,
+              heroStates: newState.heroStates
+          };
+
+          // Update actions array and last action
+          currentState.actions = currentState.actions || [];
+          currentState.actions.push(action);
+          currentState.lastAction = action;
+
+          console.log('\n--- Action Recorded ---');
+          console.log('Turn:', action.turn);
+          console.log('Action:', action);
+      }
+
+      // Log any status effect changes
+      if (newState.statusEffects) {
+          console.log('\n--- Status Effects ---');
+          Object.entries(newState.statusEffects).forEach(([heroId, effects]) => {
+              console.log(`${heroId}:`, effects);
+          });
+      }
+
+      // Log special meter changes
+      if (newState.specialMeters) {
+          console.log('\n--- Special Meters ---');
+          Object.entries(newState.specialMeters).forEach(([heroId, meter]) => {
+              const oldMeter = currentState.specialMeters?.[heroId] || 0;
+              console.log(`${heroId}: ${oldMeter}% → ${meter}%`);
+          });
+      }
+
+      // Update the state
+      const updatedState = {
+          ...currentState,
+          ...newState,
+          lastUpdate: Math.floor(Date.now() / 1000)
+      };
+
+      // console.log('\n--- Updated State ---', updatedState);
+
+      this.battleStates.set(battleId, updatedState);
+      
+      console.log('\n--- Battle Summary ---');
+      console.log('Total Actions:', updatedState.actions.length);
+      console.log('Total Commentary:', updatedState.commentary.length);
+      console.log('Last Update:', updatedState.lastUpdate);
+      console.log('================================\n');
+
+      return updatedState;
   }
 
-  addStateChangeListener(listener) {
-    this.stateChangeListeners.add(listener);
-  }
-
-  removeStateChangeListener(listener) {
-    this.stateChangeListeners.delete(listener);
+  getHeroStatusDescription(hp) {
+      if (hp <= 0) return 'DEFEATED';
+      if (hp <= 25) return 'CRITICAL';
+      if (hp <= 50) return 'WOUNDED';
+      if (hp <= 75) return 'INJURED';
+      return 'HEALTHY';
   }
 
   getBattleState(battleId) {
-    return this.battleStates.get(battleId);
+      return this.battleStates.get(battleId);
   }
 
-  getAllActiveBattles() {
-    return Array.from(this.activeBattles.keys());
+  deleteBattle(battleId) {
+      console.log(`\n=== BATTLE DELETED [${battleId}] ===`);
+      console.log('Final State:', this.battleStates.get(battleId));
+      this.battles.delete(battleId);
+      this.battleStates.delete(battleId);
+  }
+
+  getAllBattleStates() {
+      const states = {};
+      this.battleStates.forEach((state, battleId) => {
+          states[battleId] = state;
+      });
+      return states;
+  }
+
+  getBattleStateChanges(battleId, lastUpdateTime) {
+      const currentState = this.battleStates.get(battleId);
+      if (!currentState) return null;
+
+      const lastUpdate = new Date(currentState.lastUpdate);
+      const checkTime = new Date(lastUpdateTime);
+
+      if (lastUpdate > checkTime) {
+          console.log(`\n=== CHECKING STATE CHANGES [${battleId}] ===`);
+          console.log('Last Update:', lastUpdate);
+          console.log('Check Time:', checkTime);
+
+          // console.log('current state:', currentState);
+
+          const newActions = currentState.actions?.filter(action => 
+              new Date(action.timestamp) > checkTime
+          ) || [];
+
+          if (newActions.length > 0) {
+              console.log('\n--- New Actions Detected ---');
+              newActions.forEach(action => {
+                  console.log(`Turn ${action.turn}:`, action.commentary);
+              });
+              
+              return {
+                  battleStatus: currentState.battleStatus,
+                  currentTurn: currentState.currentTurn,
+                  heroStates: currentState.heroStates,
+                  newActions,
+                  lastAction: currentState.actions[currentState.actions.length - 1]
+              };
+          }
+      }
+
+      console.log(`\n=== NO CHANGES [${battleId}] ===`);
+      return null;
   }
 }

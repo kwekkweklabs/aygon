@@ -1,102 +1,107 @@
 import { BattleVisualizerStrategy } from './BattleVisualizerStrategy.js';
 import { BATTLE_EVENTS } from '../../constants/types.js';
 
-export class ListVisualizerStrategy extends BattleVisualizerStrategy {
+export class ListVisualizerStrategy {
     constructor() {
-        super();
-        this.battleState = {
-            actions: [],
+        this.state = {
             commentary: [],
-            heroes: {},
-            currentTurn: 0,
-            battleStatus: 'ACTIVE',
-            lastUpdate: Date.now(),
-            statusEffects: {},
-            specialMeters: {}
+            battleState: null
         };
     }
 
-    initialize() {
-        // No initialization needed for list strategy
+    initialize(aiProvider) {
+        this.aiProvider = aiProvider;
     }
 
-    async visualizeAction(action, attacker, defender, battleContext) {
-        this.battleState.actions.push({
-            timestamp: Date.now(),
-            action: {
-                type: action.type,
-                text: action.text,
-                damage: action.damage,
-                effect: action.effect,
-                emoji: action.emoji,
-                emojis: action.emojis,
-                crit: action.crit,
-                miss: action.miss
-            },
-            attacker: {
-                id: attacker.id,
-                name: attacker.name,
-                hp: attacker.hp
-            },
-            defender: {
-                id: defender.id,
-                name: defender.name,
-                hp: defender.hp
-            },
-            judgeCommentary: action.judgeCommentary
-        });
-
-        this.battleState.lastUpdate = Date.now();
+    async visualizeAction(action, heroes, context) {
+        // Store the current battle state
+        this.state.battleState = {
+            action,
+            heroes,
+            context
+        };
     }
 
-    displayBattleState(heroes, battleContext) {
-        this.battleState.heroes = Object.entries(heroes).reduce((acc, [id, hero]) => {
-            acc[id] = {
-                id,
-                name: hero.name,
-                description: hero.description,
-                hp: hero.hp,
-                specialMeter: battleContext.getSpecialMeter(id),
-                statusEffects: battleContext.state.statusEffects.get(id) || []
-            };
-            return acc;
-        }, {});
-
-        this.battleState.currentTurn++;
-        this.battleState.lastUpdate = Date.now();
-        
-        return this.getState();
-    }
-
-    handleBattleEvent(eventType, data) {
-        switch (eventType) {
-            case BATTLE_EVENTS.COMMENTARY_ADDED:
-                this.battleState.commentary.push({
-                    timestamp: Date.now(),
-                    text: data
-                });
+    handleBattleEvent(event, data) {
+        switch (event) {
+            case 'COMMENTARY_ADDED':
+                this.state.commentary.push(data);
                 break;
-            case BATTLE_EVENTS.BATTLE_ENDED:
-                this.battleState.battleStatus = 'ENDED';
-                this.battleState.winner = data.winner;
-                break;
-            case BATTLE_EVENTS.STATE_UPDATED:
-                this.updateBattleState(data);
+            case 'STATE_UPDATED':
+                this.state.battleState = data;
                 break;
         }
-        
-        this.battleState.lastUpdate = Date.now();
-    }
-
-    updateBattleState(newState) {
-        this.battleState.specialMeters = newState.specialMeters;
-        this.battleState.statusEffects = newState.statusEffects;
     }
 
     getState() {
         return {
-            ...this.battleState,
-            timestamp: Date.now()
+            ...this.state,
+            visualizationType: 'list'
+        };
+    }
+
+    displayBattleState(heroes, battleContext) {
+        const heroStates = Object.entries(heroes).map(([heroId, hero]) => {
+            const statusEffects = battleContext.state.statusEffects[heroId] || [];
+            const activeEffects = statusEffects
+                .filter(effect => effect.duration > 0)
+                .map(effect => `${effect.type} (${effect.duration} turns)`);
+
+            return {
+                id: heroId,
+                name: hero.name,
+                hp: hero.hp,
+                effects: activeEffects,
+                specialMeter: battleContext.state.specialMeters[heroId] || 0
+            };
+        });
+
+        // Create status summary
+        const statusSummary = heroStates.reduce((summary, hero) => {
+            summary[hero.id] = {
+                hp: hero.hp,
+                effects: hero.effects,
+                specialMeter: hero.specialMeter
+            };
+            return summary;
+        }, {});
+
+        // Update the state
+        this.state.battleState = {
+            ...this.state.battleState,
+            heroes: statusSummary,
+            turn: battleContext.state.currentTurn,
+            combo: battleContext.state.combo
+        };
+
+        return {
+            type: 'LIST_UPDATE',
+            data: {
+                heroes: statusSummary,
+                turn: battleContext.state.currentTurn,
+                combo: battleContext.state.combo,
+                commentary: this.state.commentary
+            }
+        };
+    }
+
+    formatHeroStatus(hero) {
+        const effectsText = hero.effects.length > 0 
+            ? `[${hero.effects.join(', ')}]` 
+            : '';
+        const specialMeterText = `Special: ${hero.specialMeter}%`;
+        
+        return `${hero.name} - HP: ${hero.hp}% ${effectsText} ${specialMeterText}`;
+    }
+
+    formatBattleStatus(battleContext) {
+        return `Turn: ${battleContext.state.currentTurn} | Combo: ${battleContext.state.combo}`;
+    }
+
+    clearState() {
+        this.state = {
+            commentary: [],
+            battleState: null
         };
     }
 }
