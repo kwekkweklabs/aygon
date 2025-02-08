@@ -47,13 +47,13 @@ export const battleRoutes = (app, _, done) => {
         }
       };
 
-      const aiProvider = new AIProvider('ollama', {
-        model: 'llama3.2:latest'
-      });
-      // const aiProvider = new AIProvider('openai', {
-      //   model: 'gpt-4o',
-      //   apiKey: process.env.OPENAI_API_KEY
+      // const aiProvider = new AIProvider('ollama', {
+      //   model: 'llama3.2:latest'
       // });
+      const aiProvider = new AIProvider('openai', {
+        model: 'gpt-4o',
+        apiKey: process.env.OPENAI_API_KEY
+      });
 
 
       // Create battle and get the battle instance
@@ -122,6 +122,34 @@ export const battleRoutes = (app, _, done) => {
       });
     }
   });
+
+
+  app.get('/:battleId/states', async (request, reply) => {
+    try {
+      const battleId = request.params.battleId;
+      console.log('Getting battle states for', battleId);
+
+      const battleStates = await prismaQuery.battleState.findMany({
+        where: {
+          battleId: battleId
+        },
+        orderBy: {
+          turnIndex: 'asc'
+        }
+      });
+
+      return reply.status(200).send(battleStates);
+
+
+    } catch (error) {
+      console.error('Error in /battle/states:', error);
+      return reply.status(500).send({
+        message: 'Internal server error',
+        error: error.message,
+        data: null,
+      });
+    }
+  })
 
 
   done();

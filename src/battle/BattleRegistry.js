@@ -73,60 +73,51 @@ export class BattleRegistry {
     return updatedState;
   }
 
-  emitBattleState(battleId, state, lastUpdate) {
+  async emitBattleState(battleId, state, lastUpdate) {
+    // Only proceed if there's been an update and the battle isn't already marked as finished
     if (!lastUpdate || state.lastUpdate > lastUpdate) {
       console.log(`\n=== BATTLE UPDATE [${battleId}] ===`);
-      // console.log({
-      //   battleId: battleId,
-      //   timestamp: new Date().toISOString(),
-      //   currentTurn: state.currentTurn,
-      //   battleStatus: state.battleStatus,
-      //   heroStates: state.heroStates,
-      //   commentary: state.commentary,
-      //   actions: state.actions,
-      //   lastAction: state.lastAction,
-      //   statusEffects: state.statusEffects,
-      //   specialMeters: state.specialMeters,
-      //   lastUpdate: state.lastUpdate
-      // });
-      // console.log({
-      //   battleId: battleId,
-      //   turnIndex: state.currentTurn,
-      //   hero1State: {
-      //     hp: state.heroStates.hero1.hp,
-      //     specialMeter: state.heroStates.hero1.specialMeter,
-      //     effects: state.heroStates.hero1.effects
-      //   },
-      //   hero2State: {
-      //     hp: state.heroStates.hero2.hp,
-      //     specialMeter: state.heroStates.hero2.specialMeter,
-      //     effects: state.heroStates.hero2.effects
-      //   },
-      //   commentary: state.commentary[state.commentary.length - 1].text,
-      //   action: state.lastAction
-      // })
       console.log('================================\n');
 
-      prismaQuery.battleState.create({
-        data: {
-          battleId: battleId,
-          turnIndex: state.currentTurn,
-          hero1State: {
-            hp: state.heroStates.hero1.hp,
-            specialMeter: state.heroStates.hero1.specialMeter,
-            effects: state.heroStates.hero1.effects
-          },
-          hero2State: {
-            hp: state.heroStates.hero2.hp,
-            specialMeter: state.heroStates.hero2.specialMeter,
-            effects: state.heroStates.hero2.effects
-          },
-          commentary: state.commentary[state.commentary.length - 1].text,
-          action: state.lastAction
+      if (state.battleStatus === 'ENDED') {
+        // Update the battle state to FINISHED in database
+        try {
+          await prismaQuery.battle.update({
+            where: { id: battleId },
+            data: { status: 'FINISHED' }
+          });
+
+          // Clean up the battle from memory
+          this.deleteBattle(battleId);
+          return; // Exit early to prevent creating new battle state
+        } catch (err) {
+          console.error('Failed to update battle status to FINISHED:', err);
         }
-      }).catch(err => {
+      }
+
+      // Only create new battle state if battle is not ended
+      try {
+        await prismaQuery.battleState.create({
+          data: {
+            battleId: battleId,
+            turnIndex: state.currentTurn,
+            hero1State: {
+              hp: state.heroStates.hero1.hp,
+              specialMeter: state.heroStates.hero1.specialMeter,
+              effects: state.heroStates.hero1.effects
+            },
+            hero2State: {
+              hp: state.heroStates.hero2.hp,
+              specialMeter: state.heroStates.hero2.specialMeter,
+              effects: state.heroStates.hero2.effects
+            },
+            commentary: state.commentary[state.commentary.length - 1].text,
+            action: state.lastAction
+          }
+        });
+      } catch (err) {
         console.error('Failed to save battle state:', err);
-      })
+      }
     }
   }
 
@@ -144,9 +135,12 @@ export class BattleRegistry {
 
   deleteBattle(battleId) {
     console.log(`Battle deleted: ${battleId}`);
+    // Remove battle instance
     this.battles.delete(battleId);
+    // Remove battle state
     this.battleStates.delete(battleId);
   }
+
 
   getAllBattleStates() {
     const states = {};

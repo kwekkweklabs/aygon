@@ -190,32 +190,32 @@ export class BattleMechanicsHandler {
   async getJudgeAnalysis(action, battleState) {
     const prompt = `As a battle judge, analyze this combat move considering the full context:
 
-CURRENT BATTLE STATE:
-Actor: ${battleState.heroes[action.actor].name}
-Actor HP: ${battleState.heroes[action.actor].health}%
-Action Type: ${action.actionType}
-Description: ${action.description}
-Base Power: ${action.basePower}
-Tactical Reasoning: ${action.tacticalReasoning}
-
-Previous Actions: ${this.formatPreviousActions(battleState.actionHistory)}
-Active Effects: ${this.formatActiveEffects(battleState.statusEffects)}
-
-REQUIREMENTS:
-Respond in EXACTLY this format (including the || symbols):
-[Effectiveness Multiplier (0.1-2.0)]||[Special Effect (NONE/STUN/BURN/FREEZE/BLEED/WEAKNESS)]||[Judge Commentary]
-
-Consider:
-- Move effectiveness given battle context
-- Previous actions and their impact
-- Status effects and positioning
-- Character abilities and limitations
-
-Example Good Responses:
-1.2||BURN||A powerful strike that leaves the opponent vulnerable to fire damage.
-0.8||NONE||The defensive stance reduces the attack's impact but provides tactical advantage.
-1.5||STUN||Perfect timing exploits the opponent's opening for a devastating hit.
-0.6||WEAKNESS||The cautious approach limits damage but applies a strategic debuff.`;
+    CURRENT BATTLE STATE:
+    Actor: ${battleState.heroes[action.actor].name}
+    Actor HP: ${battleState.heroes[action.actor].health}%
+    Action Type: ${action.actionType}
+    Description: ${action.description}
+    Base Power: ${action.basePower}
+    Tactical Reasoning: ${action.tacticalReasoning}
+    
+    Previous Actions: ${this.formatPreviousActions(battleState.actionHistory)}
+    Active Effects: ${this.formatActiveEffects(battleState.statusEffects)}
+    
+    REQUIREMENTS:
+    Respond in EXACTLY this format (including the || symbols):
+    [Effectiveness Multiplier (0.1-2.0)]||[Special Effect (NONE/STUN/BURN/FREEZE/BLEED/WEAKNESS)]||[Brief Judge Commentary]
+    
+    Consider:
+    - Move effectiveness given battle context
+    - Previous actions and their impact 
+    - Status effects and positioning
+    - Character abilities and limitations
+    
+    Example Good Responses:
+    1.2||BURN||Quick strike capitalizes on opponent's vulnerability.
+    0.8||NONE||Defensive move trades power for safety.
+    1.5||STUN||Perfect counter-attack timing.
+    0.6||WEAKNESS||Cautious but strategic debuff attempt.`;
 
     try {
       const response = await this.aiProvider.generate(prompt);

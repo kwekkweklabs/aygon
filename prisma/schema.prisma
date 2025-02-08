@@ -79,7 +79,7 @@ model BattleState {
   commentary String
   action Json?
 
-  @@unique([turnIndex, battleId])
+  // @@unique([turnIndex, battleId])
 }
 
 model BattleAction {
