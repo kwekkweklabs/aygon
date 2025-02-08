@@ -4,6 +4,8 @@ import Suspended from "./components/utils/Suspended";
 
 const _LazyIndexLayout = lazy(() => import("./layouts/IndexLayout"));
 const _LazyIndexPage = lazy(() => import("./pages/IndexPage"));
+const _LazyPlayPage = lazy(() => import("./pages/PlayPage"));
+const _LazyLoginPage = lazy(() => import("./pages/LoginPage"));
 
 const LazyRouteLoadingSpinner = () => {
   return (
@@ -22,5 +24,17 @@ export const LazyIndexLayout = () => (
 export const LazyIndexPage = () => (
   <Suspended loading={<LazyRouteLoadingSpinner />}>
     <_LazyIndexPage />
+  </Suspended>
+);
+
+export const LazyPlayPage = () => (
+  <Suspended loading={<LazyRouteLoadingSpinner />}>
+    <_LazyPlayPage />
+  </Suspended>
+);
+
+export const LazyLoginPage = () => (
+  <Suspended loading={<LazyRouteLoadingSpinner />}>
+    <_LazyLoginPage />
   </Suspended>
 );

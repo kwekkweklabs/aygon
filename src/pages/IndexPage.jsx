@@ -4,6 +4,10 @@ import heroBgSrc from "@/assets/hero.jpg";
 import jinxSrc from "@/assets/jinx.jpg";
 import CharCard from "@/components/landing/CharCard";
 import { ArrowDown, Brain, Infinity as InfinityIcon, Zap } from "lucide-react";
+import { Link } from "react-router";
+import ParallaxImage from "@/components/ui/parallax-image";
+import LenisScrollProvider from "@/providers/LenisScrollProvider";
+import { Parallax } from "react-scroll-parallax";
 
 const marqueeText = [
   "Build Your Emoji Army",
@@ -21,7 +25,8 @@ const marqueeText = [
 
 export default function IndexPage() {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center text-white bg-black font-jakarta">
+    <>
+      <LenisScrollProvider />
       {/* <div className="w-full py-8 flex justify-center fixed top-0 left-0">
         <nav className="rounded-full border border-black p-3 bg-white flex items-center gap-7">
           <div className="border border-black rounded-full px-4 py-2">
@@ -40,7 +45,8 @@ export default function IndexPage() {
       <Banner />
       <Hero />
       <Features />
-    </div>
+      <Footer />
+    </>
   );
 }
 
@@ -50,7 +56,7 @@ function Banner() {
       <Marquee className="[--duration:20s]">
         {marqueeText.map((text, index) => (
           <Fragment key={index}>
-            <span className="text-base font-semibold">{text}</span>
+            <span className="text-sm font-semibold">{text}</span>
             <span className="mb-1">&bull;</span>
           </Fragment>
         ))}
@@ -63,8 +69,8 @@ function Hero() {
   return (
     <section className="h-[calc(100vh-48px)] w-full flex flex-col items-center justify-center px-6">
       <div className="rounded-t-[40px] h-full w-full flex flex-col items-center relative overflow-hidden">
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,#000,transparent)]">
-          <img src={heroBgSrc} alt="" className="object-cover size-full" />
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,#000,transparent)] size-full">
+          <ParallaxImage imageUrl={heroBgSrc} className="size-full" />
         </div>
 
         {/* <div className="absolute inset-0 size-full bg-gradient-to-t from-blue-500/20 to-transparent"></div> */}
@@ -88,11 +94,14 @@ function Hero() {
               ⚔️ Battle
             </h1>
           </div>
-          <button className="mt-8 rounded-full bg-neutral-900 px-6 py-3 border border-white/10">
+          <Link
+            to={"/play"}
+            className="mt-8 rounded-full bg-neutral-900 px-6 py-3 border border-white/10"
+          >
             <p className="bg-gradient-to-b from-blue-500 to-purple-300 text-transparent bg-clip-text p-1 text-3xl tracking-tight font-bold">
               Play Now
             </p>
-          </button>
+          </Link>
         </div>
 
         <div className="absolute bottom-0 text-white font-poppins rounded-t-2xl px-6 py-6 font-semibold flex items-center gap-2">
@@ -109,14 +118,18 @@ function Hero() {
 
         {/* cards */}
         <div className="absolute top-[40%] -translate-y-1/2 left-32 -rotate-6">
-          <CharCard imageUrl={jinxSrc} />
+          <Parallax speed={-3}>
+            <CharCard imageUrl={jinxSrc} />
+          </Parallax>
         </div>
         <div className="absolute top-1/2 -translate-y-1/2 right-32 rotate-12">
-          <CharCard
-            imageUrl={jinxSrc}
-            name="Lumina Flux"
-            class="Cosmos Fighter"
-          />
+          <Parallax speed={3}>
+            <CharCard
+              imageUrl={jinxSrc}
+              name="Lumina Flux"
+              class="Cosmos Fighter"
+            />
+          </Parallax>
         </div>
       </div>
     </section>
@@ -161,5 +174,14 @@ function FeatureCard({ icon, title, description }) {
       </h3>
       <p className="text-gray-400">{description}</p>
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="p-6 flex items-center gap-4 justify-between">
+      <p>Aygon</p>
+      <p>2025&copy; Aygon.</p>
+    </footer>
   );
 }
