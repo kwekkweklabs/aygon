@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState, useRef } from 'r
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 const RoomContext = createContext(null);
 
@@ -53,7 +54,7 @@ export const RoomProvider = ({ children }) => {
       throw err;
     }
   };
-
+  
   const joinRoom = async (roomId, heroId) => {
     try {
       setLoading(true);
@@ -124,7 +125,7 @@ export const RoomProvider = ({ children }) => {
           navigate('/play');
         }
       }
-    }, 1500);
+    }, 2000);
   };
 
   const stopPolling = () => {
@@ -185,6 +186,22 @@ export const RoomProvider = ({ children }) => {
     }
   }, [location.pathname]);
 
+  const { data: myHero } = useQuery({
+    queryKey: ['my-hero'],
+    enabled: !!accessToken,
+    queryFn: async () => {
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/hero/my-hero`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      });
+      return res.data;
+    },
+    refetchInterval: 10000
+  })
+
+  console.log('My hero:', myHero);
+
   const value = {
     currentRoom,
     roomList,
@@ -194,8 +211,10 @@ export const RoomProvider = ({ children }) => {
     leaveRoom,
     isInRoom: !!currentRoom,
     roomState: currentRoom?.state || null,
-    refreshRoomList: fetchRoomList
+    refreshRoomList: fetchRoomList,
+    myHero
   };
+
 
   return (
     <RoomContext.Provider value={value}>
