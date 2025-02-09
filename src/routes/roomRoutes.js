@@ -29,9 +29,8 @@ export const roomRoutes = (app, _, done) => {
               user: {
                 select: {
                   id: true,
-                  name: true,
                   email: true,
-                  address: true
+                  privyWalletAddress: true
                 }
               }
             }
@@ -45,9 +44,8 @@ export const roomRoutes = (app, _, done) => {
               user: {
                 select: {
                   id: true,
-                  name: true,
                   email: true,
-                  address: true
+                  privyWalletAddress: true
                 }
               }
             }
