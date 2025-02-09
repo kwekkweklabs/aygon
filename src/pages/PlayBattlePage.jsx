@@ -8,24 +8,40 @@ import { motion } from "framer-motion";
 import { Heart, Swords, Zap } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-const StyledVersusCard = ({ hero1Name, hero2Name }) => (
+const StyledVersusCard = ({
+  hero1Name,
+  hero2Name,
+  winnerHeroId,
+  hero1Id,
+  hero2Id,
+}) => (
   <div className="bg-neutral-800 p-5 rounded-2xl flex-1 relative overflow-hidden group flex items-center">
-    {/* Content */}
-    <div className="relative">
-      <div className="flex items-center gap-3">
-        <span className="flex-1 font-semibold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent text-center">
-          {hero1Name}
-        </span>
-        <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-400 text-sm font-medium">
-          VS
-        </span>
-        <span className="flex-1 font-semibold bg-gradient-to-r from-blue-400 to-primary-400 bg-clip-text text-transparent text-center">
-          {hero2Name}
-        </span>
+    {winnerHeroId ? (
+      <>
+        <div className="absolute size-full inset-0 bg-yellow-500/10"></div>
+        <div className="text-yellow-500 font-semibold text-2xl w-full flex items-center justify-center">
+          The Winner Is {winnerHeroId === hero1Id ? hero1Name : hero2Name}
+        </div>
+      </>
+    ) : (
+      <div className="relative">
+        <div className="flex items-center gap-3">
+          <span className="flex-1 font-semibold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent text-center">
+            {hero1Name}
+          </span>
+          <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-400 text-sm font-medium">
+            VS
+          </span>
+          <span className="flex-1 font-semibold bg-gradient-to-r from-blue-400 to-primary-400 bg-clip-text text-transparent text-center">
+            {hero2Name}
+          </span>
+        </div>
       </div>
-    </div>
+    )}
   </div>
 );
+
+const IS_SIMULATION = "";
 
 export default function PlayBattlePage() {
   const {
@@ -165,7 +181,7 @@ export default function PlayBattlePage() {
               <div className="w-full h-[calc(100vh-128px)] overflow-y-auto overflow-x-hidden bg-neutral-900 border border-white/10 rounded-t-3xl p-5">
                 <div className="w-full flex items-center justify-center gap-4 relative">
                   {/* card 1 */}
-                  <div className="w-full -rotate-6">
+                  <div className="w-full relative -rotate-6">
                     <PlayerCard
                       type="hero1"
                       className={"hover:rotate-6 "}
@@ -176,6 +192,9 @@ export default function PlayBattlePage() {
                       specialPercent={0}
                       isWin={battleStatus.winnerHeroId === hero1.id}
                     />
+                    {latestAction && latestAction.attacker.id === "hero1" && (
+                      <ActionAnimation action={latestAction} position="left" />
+                    )}
                   </div>
                   {/* VS Badge */}
                   <div className="relative z-20 transform transition-transform duration-300 hover:scale-110 flex items-center justify-center">
@@ -185,7 +204,7 @@ export default function PlayBattlePage() {
                     <div className="absolute size-16 rounded-full border-4 border-purple-400/30 animate-ping" />
                   </div>
 
-                  <div className="w-full rotate-6">
+                  <div className="w-full relative rotate-6">
                     <PlayerCard
                       type="hero2"
                       className="hover:-rotate-6 "
@@ -196,6 +215,12 @@ export default function PlayBattlePage() {
                       specialPercent={0}
                       isWin={battleStatus.winnerHeroId === hero2.id}
                     />
+                    {latestAction && latestAction.attacker.id === "hero2" && (
+                      <ActionAnimation
+                        action={latestAction}
+                        position="left" // Changed to 'right' to trigger the left-side positioning
+                      />
+                    )}
                   </div>
 
                   {/* card 2 */}
@@ -206,6 +231,9 @@ export default function PlayBattlePage() {
                   <StyledVersusCard
                     hero1Name={hero1.name}
                     hero2Name={hero2.name}
+                    hero1Id={hero1.id}
+                    hero2Id={hero2.id}
+                    winnerHeroId={battleStatus.winnerHeroId}
                   />
                   {/* NEIGHBOR CARD */}
                   <div className="bg-neutral-800 p-5 rounded-2xl flex-1 flex items-start flex-col justify-center gap-4 text-sm">
@@ -401,3 +429,77 @@ function ProgressBar({ percent, className = "" }) {
     </div>
   );
 }
+
+const ActionAnimation = ({ action, position }) => {
+  if (!action) return null;
+
+  // Updated positioning classes based on position prop
+  const positionClasses =
+    position === "left"
+      ? "absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2" // Centered vertically and horizontally for left card
+      : "absolute top-1/2 left-1/2 -translate-y-1/2 translate-x-1/2"; // Centered vertically and properly spaced for right card
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={action.timestamp}
+        initial={{
+          scale: 0.5,
+          opacity: 0,
+          x: position === "left" ? -50 : 50,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+          x: 0,
+        }}
+        exit={{
+          scale: 0.8,
+          opacity: 0,
+          y: 50,
+          transition: { duration: 0.5 },
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }}
+        className={`${positionClasses} flex flex-col items-center gap-3 w-full z-50`}
+      >
+        <div className="flex gap-2 scale-150 mb-2">
+          {action.action.emojis.map((emoji, index) => (
+            <motion.span
+              key={index}
+              className="text-5xl"
+              animate={{
+                scale: [1, 1.4, 1],
+                rotate: [0, 15, -15, 0],
+              }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.2,
+                repeat: Infinity,
+                repeatDelay: 1,
+              }}
+            >
+              {emoji}
+            </motion.span>
+          ))}
+        </div>
+        <motion.div
+          className="text-center text-white font-bold bg-gray-800/90 px-6 py-3 rounded-xl text-lg shadow-lg backdrop-blur-sm border border-gray-700 whitespace-nowrap"
+          animate={{
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            repeatDelay: 0.5,
+          }}
+        >
+          {action.action.text}
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
