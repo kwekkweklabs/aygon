@@ -30,14 +30,14 @@ const StyledVersusCard = ({
       </>
     ) : (
       <div className="relative  w-full flex justify-center items-center">
-        <div className="flex items-center gap-3">
-          <span className="flex-1 font-semibold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent text-center">
+        <div className="flex items-center gap-5">
+          <span className="font-semibold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent text-center">
             {hero1Name}
           </span>
           <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-400 text-sm font-medium">
             VS
           </span>
-          <span className="flex-1 font-semibold bg-gradient-to-r from-blue-400 to-primary-400 bg-clip-text text-transparent text-center">
+          <span className="font-semibold bg-gradient-to-r from-blue-400 to-primary-400 bg-clip-text text-transparent text-center">
             {hero2Name}
           </span>
         </div>

@@ -41,7 +41,7 @@ export default function RoomPage() {
           <Castle />
           {currentRoom?.name}
         </h1>
-        <Button
+        {/* <Button
           onPress={() => {
             playSound(["quack.mp3", "nya-cute-girl.mp3", "bomb-explode.mp3"]);
           }}
@@ -61,7 +61,7 @@ export default function RoomPage() {
           }}
         >
           Stop BG
-        </Button>
+        </Button> */}
         {/* <div className='mt-8'>
           <RoomStateVisualizer />
         </div> */}
@@ -83,7 +83,7 @@ export default function RoomPage() {
           </div>
         )}
 
-        <Button>LEAVE</Button>
+        {/* <Button>LEAVE</Button> */}
       </div>
     </div>
   );
