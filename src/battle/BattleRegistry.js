@@ -173,6 +173,8 @@ export class BattleRegistry {
         data: {
           // hero1Id: null,
           hero2Id: null,
+          state: 'WAITING',
+          currentBattleId: null
         }
       });
 

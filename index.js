@@ -217,4 +217,34 @@ const start = async () => {
   }
 };
 
+// On system restart, set all room hero2Id to null
+const resetRooms = async () => {
+  try {
+    await prismaQuery.room.updateMany({
+      where: {
+        hero2Id: {
+          not: null
+        }
+      },
+      data: {
+        hero2Id: null,
+        state: 'WAITING',
+        currentBattleId: null
+      }
+    });
+
+    console.log('Rooms reset successfully');
+  } catch (error) {
+    console.error('Error resetting rooms:', error);
+  }
+};
+
+process.on('SIGINT', async () => {
+  console.log('SIGINT received, closing server');
+  await resetRooms();
+  await fastify.close();
+  process.exit(0);
+})
+
+
 start();
