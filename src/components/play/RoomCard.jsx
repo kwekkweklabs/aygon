@@ -1,4 +1,3 @@
-import React from "react";
 import { Swords, Users, Clock } from "lucide-react";
 import { Button } from "@heroui/react";
 import { useNavigate } from "react-router";

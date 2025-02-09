@@ -3,9 +3,29 @@ import { useAygonQuery } from "@/lib/aygon-sdk/query";
 import { cnm } from "@/utils/style";
 import { Spinner } from "@heroui/react";
 import { Canvas } from "@react-three/fiber";
+import dayjs from "dayjs";
 import { motion } from "framer-motion";
 import { Heart, Swords, Zap } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+
+const StyledVersusCard = ({ hero1Name, hero2Name }) => (
+  <div className="bg-neutral-800 p-5 rounded-2xl flex-1 relative overflow-hidden group flex items-center">
+    {/* Content */}
+    <div className="relative">
+      <div className="flex items-center gap-3">
+        <span className="flex-1 font-semibold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent text-center">
+          {hero1Name}
+        </span>
+        <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-400 text-sm font-medium">
+          VS
+        </span>
+        <span className="flex-1 font-semibold bg-gradient-to-r from-blue-400 to-primary-400 bg-clip-text text-transparent text-center">
+          {hero2Name}
+        </span>
+      </div>
+    </div>
+  </div>
+);
 
 export default function PlayBattlePage() {
   const {
@@ -27,39 +47,56 @@ export default function PlayBattlePage() {
   const [latestAction, setLatestAction] = useState(null);
   const [isBattleFinished, setIsBattleFinished] = useState(false);
   const [processedTurns, setProcessedTurns] = useState(new Set());
+  const [lastUpdateTime, setLastUpdateTime] = useState(Date.now());
+  const [currentTurn, setCurrentTurn] = useState(0);
 
   const states = useMemo(() => roomStates?.states || [], [roomStates]);
+  const hero1 = roomStates?.hero1;
+  const hero2 = roomStates?.hero2;
+  const battleStatus = roomStates?.battle;
 
-  // Handle state updates and refetching using recursive setTimeout
+  // Handle state updates and refetching
   useEffect(() => {
     if (isRoomStatesLoading || isBattleFinished) return;
 
     let timeoutId;
+    let isActive = true;
 
     const updateState = async () => {
+      if (!isActive || isBattleFinished) return;
+
       try {
         await refetchRoomStates();
-        timeoutId = setTimeout(updateState, 2000);
+        setLastUpdateTime(Date.now());
+
+        if (isActive && !isBattleFinished) {
+          timeoutId = setTimeout(updateState, 2000);
+        }
       } catch (error) {
         console.error("Failed to fetch room states:", error);
-        timeoutId = setTimeout(updateState, 2000);
+        if (isActive && !isBattleFinished) {
+          timeoutId = setTimeout(updateState, 2000);
+        }
       }
     };
 
     timeoutId = setTimeout(updateState, 2000);
 
     return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
+      isActive = false;
+      clearTimeout(timeoutId);
     };
   }, [isRoomStatesLoading, isBattleFinished, refetchRoomStates]);
 
-  // Process new turns
   useEffect(() => {
     if (states.length === 0) return;
+    if (battleStatus.status === "FINISHED") {
+      setCurrentTurn(states.length - 1);
+      setIsBattleFinished(true);
+      setBattleHistory(states.map((state) => state.commentary));
+      return;
+    }
 
-    // Process all unprocessed turns in order
     states.forEach((state) => {
       if (!processedTurns.has(state.turnIndex)) {
         if (state.isFinished) {
@@ -75,7 +112,6 @@ export default function PlayBattlePage() {
               timestamp: Date.now(),
             });
 
-            // Clear action after animation
             const timeout = setTimeout(() => {
               setLatestAction(null);
             }, 3000);
@@ -84,16 +120,11 @@ export default function PlayBattlePage() {
           }
         }
 
-        // Mark turn as processed
         setProcessedTurns((prev) => new Set([...prev, state.turnIndex]));
       }
     });
-  }, [states]);
+  }, [processedTurns, states, battleStatus]);
 
-  const hero1 = roomStates?.hero1;
-  const hero2 = roomStates?.hero2;
-
-  // Get current state based on the highest processed turn
   const currentState = useMemo(() => {
     if (states.length === 0) return null;
     const maxProcessedTurn = Math.max(...Array.from(processedTurns));
@@ -113,7 +144,7 @@ export default function PlayBattlePage() {
       {isRoomStatesLoading ? (
         <div className="min-h-screen flex flex-col items-center justify-center">
           <Spinner />
-          <p className="animate-pulse text-neutral-400">
+          <p className="animate-pulse text-neutral-400 mt-4">
             Loading battle states...
           </p>
         </div>
@@ -136,10 +167,14 @@ export default function PlayBattlePage() {
                   {/* card 1 */}
                   <div className="w-full -rotate-6">
                     <PlayerCard
+                      type="hero1"
                       className={"hover:rotate-6 "}
                       name={hero1.name}
                       desc={hero2.description}
                       image={hero1.image}
+                      hpPercent={0}
+                      specialPercent={0}
+                      isWin={battleStatus.winnerHeroId === hero1.id}
                     />
                   </div>
                   {/* VS Badge */}
@@ -152,14 +187,47 @@ export default function PlayBattlePage() {
 
                   <div className="w-full rotate-6">
                     <PlayerCard
+                      type="hero2"
                       className="hover:-rotate-6 "
                       name={hero2.name}
                       desc={hero2.description}
                       image={hero2.image}
+                      hpPercent={0}
+                      specialPercent={0}
+                      isWin={battleStatus.winnerHeroId === hero2.id}
                     />
                   </div>
 
                   {/* card 2 */}
+                </div>
+
+                <div className="w-full mt-5 flex gap-4">
+                  {/* VERSUS CARD */}
+                  <StyledVersusCard
+                    hero1Name={hero1.name}
+                    hero2Name={hero2.name}
+                  />
+                  {/* NEIGHBOR CARD */}
+                  <div className="bg-neutral-800 p-5 rounded-2xl flex-1 flex items-start flex-col justify-center gap-4 text-sm">
+                    <div className="flex items-center gap-2">
+                      <p className="text-neutral-400">Battle Status </p>
+                      <div className="px-3 py-1 bg-primary/10 rounded-full text-primary font-medium">
+                        {battleStatus.status}
+                      </div>
+                    </div>
+                    <p className="text-neutral-400">
+                      Current Turn{" "}
+                      <span className="text-primary font-medium px-3 py-1 rounded-full bg-primary/10">
+                        {currentState?.turnIndex || currentTurn}
+                      </span>
+                    </p>
+                    <p className="text-neutral-400">
+                      Last Update:{" "}
+                      <span className="text-white font-medium">
+                        {dayjs(lastUpdateTime).format("HH:mm:ss, DD-MM-YYYY")}
+                      </span>
+                    </p>
+                  </div>
                 </div>
 
                 <div className="w-full flex flex-col mt-5">
@@ -178,24 +246,7 @@ function ActivityMessage({ message, index }) {
   const [action, description, result] = message.split("\n");
   const cleanAction = action?.replace("undefined ", "").trim();
 
-  // If it's a commentary-only message (i.e., battle start), render without action header
   const isCommentaryOnly = !cleanAction?.includes(":");
-
-  if (isCommentaryOnly) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.3,
-          delay: index * 0.1,
-        }}
-        className="flex flex-col"
-      >
-        <div className="text-gray-200 text-sm leading-relaxed">{message}</div>
-      </motion.div>
-    );
-  }
 
   return (
     <motion.div
@@ -207,18 +258,26 @@ function ActivityMessage({ message, index }) {
       }}
       className="flex flex-col space-y-1.5"
     >
-      <div className="text-xs text-gray-400 px-2">{cleanAction}</div>
-      <div
-        className="bg-gray-700/70 rounded-lg px-4 py-2.5 text-gray-200 text-sm 
+      {isCommentaryOnly ? (
+        <div className="text-gray-200 text-sm leading-relaxed">{message}</div>
+      ) : (
+        <>
+          <div className="text-xs text-gray-400 px-2">{cleanAction}</div>
+          <div
+            className="bg-gray-700/70 rounded-lg px-4 py-2.5 text-gray-200 text-sm 
         inline-block max-w-[90%] shadow-lg backdrop-blur-sm"
-      >
-        {description && <div className="leading-relaxed">{description}</div>}
-        {result && (
-          <div className="text-yellow-400 font-medium mt-1.5 leading-relaxed">
-            {result}
+          >
+            {description && (
+              <div className="leading-relaxed">{description}</div>
+            )}
+            {result && (
+              <div className="text-yellow-400 font-medium mt-1.5 leading-relaxed">
+                {result}
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </>
+      )}
     </motion.div>
   );
 }
@@ -259,12 +318,20 @@ function PlayerCard({
   hpPercent = 50,
   specialPercent = 50,
   className,
+  isWin = false,
+  type = "hero1",
 }) {
   return (
     <div
       className={cnm(
-        "w-full min-h-64 bg-neutral-800 border border-white/10 rounded-2xl shadow-xl overflow-hidden scale-75",
+        "w-full min-h-64 bg-neutral-800 border border-white/10 rounded-2xl shadow-xl overflow-hidden scale-75 relative",
         "transform transition-all duration-300 hover:scale-85 hover:shadow-xl hover:border-purple-500",
+        isWin
+          ? [
+              "border-yellow-500 border scale-90",
+              type === "hero2" ? "-rotate-6" : "rotate-6",
+            ]
+          : "opacity-40",
         className
       )}
     >
@@ -304,6 +371,11 @@ function PlayerCard({
           </div>
         </div>
       </div>
+      {isWin && (
+        <div className="h-10 flex items-center px-4 text-sm bg-yellow-500 rounded-xl text-black font-medium absolute top-5 left-5">
+          WINNER
+        </div>
+      )}
     </div>
   );
 }
