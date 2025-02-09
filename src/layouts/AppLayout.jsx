@@ -1,3 +1,4 @@
+import Navbar from "@/components/play/Navbar";
 import { AygonSDKProvider } from "@/lib/aygon-sdk/context";
 import AuthProvider from "@/providers/AuthProvider";
 import { PrivyProvider } from "@privy-io/react-auth";
@@ -48,7 +49,10 @@ export default function AppLayout() {
     >
       <AuthProvider>
         <AygonSDKProvider>
-          <Outlet />
+          <Navbar />
+          <div className="mt-8">
+            <Outlet />
+          </div>
         </AygonSDKProvider>
       </AuthProvider>
     </PrivyProvider>

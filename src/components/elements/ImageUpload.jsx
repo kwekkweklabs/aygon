@@ -161,13 +161,6 @@ export default function ImageUpload({ imageUrl, setImageUrl }) {
               <p className="text-sm text-gray-500 mb-4">
                 or click to browse files
               </p>
-              <Button
-                color="primary"
-                variant="flat"
-                startContent={<Upload size={16} />}
-              >
-                Upload Image
-              </Button>
             </label>
           )}
         </div>
