@@ -1,6 +1,7 @@
 import StarfieldEffect from '@/components/elements/StarfieldEffect'
 import { useAuth } from '@/providers/AuthProvider'
 import { useRoom } from '@/providers/RoomProvider'
+import { useGameSound } from '@/providers/SoundEngineProvider'
 import { cnm } from '@/utils/style'
 import { Button, Modal, ModalBody, ModalContent, ModalHeader, Spinner } from '@heroui/react'
 import { Canvas } from '@react-three/fiber'
@@ -10,6 +11,7 @@ import { useNavigate } from 'react-router'
 
 export default function RoomPage() {
   const { currentRoom } = useRoom()
+  const { playSound, playBgMusic, stopBgMusic } = useGameSound()
   return (
     <div className="w-full h-screen flex flex-col items-center px-5 overflow-hidden pt-12">
       <div className="w-full h-screen fixed z-[0]">
@@ -22,6 +24,27 @@ export default function RoomPage() {
         <h1 className='text-center text-3xl font-bold'>
           {currentRoom?.name}
         </h1>
+        <Button
+          onPress={() => {
+            playSound(['quack.mp3', 'nya-cute-girl.mp3', 'bomb-explode.mp3'])
+          }}
+        >
+          Test Sound
+        </Button>
+        <Button
+          onPress={() => {
+            playBgMusic()
+          }}
+        >
+          Play BG
+        </Button>
+        <Button
+          onPress={() => {
+            stopBgMusic()
+          }}
+        >
+          Stop BG
+        </Button>
         {/* <div className='mt-8'>
           <RoomStateVisualizer />
         </div> */}
@@ -32,14 +55,15 @@ export default function RoomPage() {
           </div>
         }
 
-        {/* {currentRoom?.state === "WAITING" && <IdleRoom />} */}
-        <IdleRoom />
+        {currentRoom?.state === "WAITING" && <IdleRoom />}
 
         {currentRoom?.state === "PLAYING" &&
           <div>
             CURRENT BATTLE ID = {currentRoom?.currentBattleId}
           </div>
         }
+
+        <Button>LEAVE</Button>
       </div>
     </div>
   )
