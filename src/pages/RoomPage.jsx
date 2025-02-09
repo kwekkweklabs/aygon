@@ -37,10 +37,6 @@ export default function RoomPage() {
       </div>
 
       <div className="pt-[8rem] z-20 relative w-full container max-w-3xl mx-auto flex flex-col items-center">
-        <h1 className="text-center text-2xl font-semibold px-6 py-2 bg-primary/10 rounded-full text-primary flex items-center gap-2">
-          <Castle />
-          {currentRoom?.name}
-        </h1>
         {/* <Button
           onPress={() => {
             playSound(["quack.mp3", "nya-cute-girl.mp3", "bomb-explode.mp3"]);
@@ -66,16 +62,21 @@ export default function RoomPage() {
           <RoomStateVisualizer />
         </div> */}
 
-        {!currentRoom && (
+        {!currentRoom ? (
           <div className="flex flex-col items-center justify-center py-[10rem]">
             <Spinner size="lg" color="primary" />
+          </div>
+        ) : (
+          <div className="mt-6 flex flex-col items-center gap-6">
+            <h1 className="text-center text-2xl font-semibold px-6 py-2 bg-primary/10 rounded-full text-primary flex items-center gap-2">
+              <Castle />
+              {currentRoom?.name}
+            </h1>
+            <IdleRoom />
           </div>
         )}
 
         {/* {currentRoom?.state === "WAITING" && <IdleRoom />} */}
-        <div className="mt-6">
-          <IdleRoom />
-        </div>
 
         {currentRoom?.state === "PLAYING" && (
           <div ref={playingRef} className="w-full">

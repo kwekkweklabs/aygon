@@ -136,7 +136,7 @@ export default function BattleVisualizer({ currentRoomId }) {
     if (battleStatus.status === "FINISHED") {
       setCurrentTurn(states.length - 1);
       setIsBattleFinished(true);
-      //   setBattleHistory(states.map((state) => state.commentary));
+      // setBattleHistory(states.map((state) => state.commentary));
       return;
     }
 
@@ -150,6 +150,7 @@ export default function BattleVisualizer({ currentRoomId }) {
       if (state.isFinished) {
         setIsBattleFinished(true);
         setBattleHistory([]);
+        processedTurnsRef.current = new Set();
       }
 
       if (state.hero1State) {
@@ -198,7 +199,9 @@ export default function BattleVisualizer({ currentRoomId }) {
       processedTurnsRef.current.add(stateId);
     });
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [states, battleStatus]);
 
   return (
@@ -543,7 +546,7 @@ const ActionAnimation = ({ action, className, position = "left" }) => {
         {action.emojis.map((emoji, index) => (
           <motion.span
             key={index}
-            className="text-5xl"
+            className="text-5xl scale-150"
             animate={{
               scale: [1, 1.4, 1],
               rotate: [0, 15, -15, 0],
