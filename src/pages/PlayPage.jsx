@@ -11,6 +11,7 @@ export default function PlayPage() {
     queryKey: ["hero-list"],
     queryFn: async ({ sdk, context }) => {
       const res = await sdk.getUserHeroes({ signal: context.signal });
+      console.log("Hero List", res);
       return res;
     },
   });
@@ -31,7 +32,7 @@ export default function PlayPage() {
         </Canvas>
       </div>
 
-      <div className="w-full max-w-4xl flex flex-col items-center z-20 relative">
+      <div className="w-full max-w-[80rem] flex flex-col items-center z-20 relative">
         {/* Heroes */}
         <div className="w-full flex flex-col gap-6">
           <div className="flex flex-row items-center justify-between">
@@ -47,13 +48,15 @@ export default function PlayPage() {
             className="dark rounded-2xl min-h-[300px]"
           >
             {heroList ? (
-              <div className="w-full grid-cols-3 grid gap-4">
+              <div className="w-full grid-cols-4 grid gap-4">
                 {heroList.map((hero) => (
                   <HeroCard
                     desc={hero.description}
                     name={hero.name}
                     imageUrl={hero.image}
                     key={hero.id}
+                    winCount={hero.winBattleCount}
+                    loseCount={hero.loseBattleCount}
                   />
                 ))}
               </div>
@@ -64,7 +67,7 @@ export default function PlayPage() {
         </div>
 
         {/* Rooms */}
-        <div className="w-full flex flex-col gap-6">
+        <div className="w-full flex flex-col gap-6 mt-16">
           <p className="font-poppins font-semibold text-2xl">Rooms</p>
           <Skeleton
             isLoaded={!isRoomListLoading}

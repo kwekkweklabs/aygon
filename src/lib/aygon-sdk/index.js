@@ -7,7 +7,7 @@ export class AygonSDK {
     "Content-Type": "application/json",
   };
 
-  constructor(apiKey = "", baseURL = "https://api.aygon.fun") {
+  constructor(apiKey = "", baseURL = import.meta.env.VITE_BACKEND_URL || "https://api.aygon.fun") {
     if (apiKey) {
       this.headers = {
         ...this.headers,
