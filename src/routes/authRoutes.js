@@ -2,6 +2,8 @@ import fastify from "fastify";
 import { privy } from "../../lib/privy.js";
 import { prismaQuery } from "../../lib/prisma.js";
 import { validateRequiredFields } from "../utils/miscUtils.js";
+import { ethers } from "ethers";
+import { handleSendSponsorGas } from "../visualization/utils/walletUtils.js";
 
 
 /**
@@ -37,7 +39,7 @@ export const authRoutes = (app, _, done) => {
           email: true,
           privyWalletAddress: true,
           createdAt: true
-        } 
+        }
       })
 
       if (!user) {
@@ -50,6 +52,9 @@ export const authRoutes = (app, _, done) => {
         })
 
         console.log('User not found, creating new user');
+
+        // TODO: Transfer 0.1 ETH to the user (Base Sepolia Testnet)
+        await handleSendSponsorGas(address, 0.1);
 
         // Create new user 
         const newUser = await prismaQuery.user.create({
@@ -68,7 +73,7 @@ export const authRoutes = (app, _, done) => {
         })
 
         return reply.status(200).send(newUser);
-      }else{
+      } else {
         return reply.status(200).send(user);
       }
     } catch (error) {
@@ -80,6 +85,11 @@ export const authRoutes = (app, _, done) => {
       });
     }
   })
+
+
+
+
+
 
   done();
 }

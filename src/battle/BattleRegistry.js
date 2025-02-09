@@ -79,20 +79,19 @@ export class BattleRegistry {
       console.log(`\n=== BATTLE UPDATE [${battleId}] ===`);
       console.log('================================\n');
 
-      if (state.battleStatus === 'ENDED') {
-        // Update the battle state to FINISHED in database
-        try {
-          await prismaQuery.battle.update({
-            where: { id: battleId },
-            data: { status: 'FINISHED' }
-          });
+      // or when hero1 or hero2 is defeated (hp <= 0)
+      const hero1Hp = state.heroStates.hero1.hp;
+      const hero2Hp = state.heroStates.hero2.hp;
 
-          // Clean up the battle from memory
-          this.deleteBattle(battleId);
-          return; // Exit early to prevent creating new battle state
-        } catch (err) {
-          console.error('Failed to update battle status to FINISHED:', err);
+      if (state.battleStatus === 'ENDED' || hero1Hp <= 0 || hero2Hp <= 0) {
+        let winner = null;
+        if (hero1Hp <= 0) {
+          winner = 'hero2';
+        } else if (hero2Hp <= 0) {
+          winner = 'hero1';
         }
+
+        await this.handleFinishedBattle(battleId, state, winner);
       }
 
       // Only create new battle state if battle is not ended
@@ -118,6 +117,76 @@ export class BattleRegistry {
       } catch (err) {
         console.error('Failed to save battle state:', err);
       }
+    }
+  }
+
+  async handleFinishedBattle(battleId, state, winner) {
+    console.log(`Battle ${battleId} has ended!`);
+    // Update the battle state to FINISHED in database
+    try {
+      const battle = await prismaQuery.battle.findUnique({
+        where: { id: battleId },
+        select:{
+          hero1Id: true,
+          hero2Id: true,
+          hero1: {
+            select: {
+              user: {
+                select: {
+                  privyWalletAddress: true
+                }
+              }
+            }
+          },
+          hero2: {
+            select: {
+              user: {
+                select: {
+                  privyWalletAddress: true
+                }
+              }
+            }
+          }
+        }
+      })
+
+      let winnerId = null;
+      if (winner === 'hero1') {
+        winnerId = battle.hero1Id;
+      } else if (winner === 'hero2') {
+        winnerId = battle.hero2Id;
+      }
+      await prismaQuery.battle.update({
+        where: { id: battleId },
+        data: { 
+          status: 'FINISHED' ,
+          winnerHeroId: winnerId
+        }
+      });
+
+      // Clean up the battle from memory
+      this.deleteBattle(battleId);
+
+      // TODO: Trigger payment transaction here
+      let winnerAddress = null;
+      if (winnerId === battle.hero1Id) {
+        winnerAddress = battle.hero1.user.privyWalletAddress;
+      } else if (winnerId === battle.hero2Id) {
+        winnerAddress = battle.hero2.user.privyWalletAddress;
+      }
+
+      let loserAddress = null;
+      if (winnerId !== battle.hero1Id) {
+        loserAddress = battle.hero1.user.privyWalletAddress;
+      } else if (winnerId !== battle.hero2Id) {
+        loserAddress = battle.hero2.user.privyWalletAddress;
+      }
+
+      console.log(`TRANSFER FUNDS: ${winnerAddress} -> ${loserAddress}`);
+
+      return; // Exit early to prevent creating new battle state
+    } catch (err) {
+      console.error('Failed to update battle status to FINISHED:', err);
     }
   }
 

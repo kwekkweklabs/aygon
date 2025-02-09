@@ -83,13 +83,14 @@ export const battleRoutes = (app, _, done) => {
       Promise.resolve().then(async () => {
         try {
           console.log(`Starting battle ${battleId} in background`);
-          await battle.startBattle(); // Call startBattle on the battle instance
-
+          
           // Update battle status to ONGOING once started
           await prismaQuery.battle.update({
             where: { id: battleId },
             data: { status: 'ONGOING' }
           });
+
+          battle.startBattle(); // Call startBattle on the battle instance
 
           console.log(`Battle ${battleId} started successfully`);
         } catch (error) {

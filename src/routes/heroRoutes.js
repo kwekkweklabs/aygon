@@ -22,6 +22,35 @@ export const heroRoutes = (app, _, done) => {
         }
       })
 
+      for (let i = 0; i < heroes.length; i++) {
+        console.log('hero', heroes[i]);
+
+        const allBattles = await prismaQuery.battle.findMany({
+          where: {
+            OR: [
+              {
+                hero1Id: heroes[i].id
+              },
+              {
+                hero2Id: heroes[i].id
+              }
+            ],
+            status: 'FINISHED'
+          },
+          select: {
+            id: true,
+            winnerHeroId: true
+          }
+        })
+
+        // Where .winnerHeroId = heroes[i].id
+        const winBattleCount = allBattles.filter(battle => battle.winnerHeroId === heroes[i].id).length;
+        const loseBattleCount = allBattles.filter(battle => battle.winnerHeroId !== heroes[i].id).length;
+
+        heroes[i].winBattleCount = winBattleCount;
+        heroes[i].loseBattleCount = loseBattleCount;
+      }
+
       return reply.status(200).send(heroes);
     } catch (error) {
       console.log('error on /hero/my-hero', error);
