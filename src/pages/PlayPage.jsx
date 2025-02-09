@@ -3,7 +3,7 @@ import CreateHeroButton from "@/components/play/CreateHeroButton";
 import HeroCard from "@/components/play/HeroCard";
 import RoomCard from "@/components/play/RoomCard";
 import { useAygonQuery } from "@/lib/aygon-sdk/query";
-import { Button, Skeleton } from "@heroui/react";
+import { Skeleton } from "@heroui/react";
 import { Canvas } from "@react-three/fiber";
 
 export default function PlayPage() {

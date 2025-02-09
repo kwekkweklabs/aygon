@@ -1,31 +1,31 @@
-import React from 'react';
-import { Swords, Users, Clock } from 'lucide-react';
+import React from "react";
+import { Swords, Users, Clock } from "lucide-react";
 
-export default function RoomCard({ 
+export default function RoomCard({
   name = "Room 1",
   hero1 = null,
   hero2 = null,
-  state = "WAITING"
+  state = "WAITING",
 }) {
   const statusConfig = {
     WAITING: {
       icon: <Clock size={14} className="text-yellow-400" />,
       text: "Waiting",
       bgColor: "bg-yellow-400/10",
-      textColor: "text-yellow-400"
+      textColor: "text-yellow-400",
     },
     PLAYING: {
       icon: <Swords size={14} className="text-green-400" />,
       text: "In Battle",
       bgColor: "bg-green-400/10",
-      textColor: "text-green-400"
+      textColor: "text-green-400",
     },
     FINISHED: {
       icon: <Users size={14} className="text-blue-400" />,
       text: "Finished",
       bgColor: "bg-blue-400/10",
-      textColor: "text-blue-400"
-    }
+      textColor: "text-blue-400",
+    },
   };
 
   const status = statusConfig[state] || statusConfig.WAITING;
@@ -35,7 +35,9 @@ export default function RoomCard({
       {/* Header */}
       <div className="px-4 py-3 flex items-center justify-between border-b border-neutral-800">
         <h3 className="font-bold text-neutral-200">{name}</h3>
-        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full ${status.bgColor} ${status.textColor} text-xs font-medium`}>
+        <div
+          className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full ${status.bgColor} ${status.textColor} text-xs font-medium`}
+        >
           {status.icon}
           {status.text}
         </div>
@@ -49,8 +51,8 @@ export default function RoomCard({
             <div className="absolute top-1/2 -translate-y-1/2 -rotate-12 transform transition-transform duration-300 hover:scale-105 hover:-rotate-6 z-10 left-[4rem]">
               <div className="w-40 bg-neutral-800 rounded-lg overflow-hidden border-2 border-purple-500/50 shadow-lg">
                 <div className="aspect-square">
-                  <img 
-                    src={hero1?.image || "/placeholder.svg"} 
+                  <img
+                    src={hero1?.image || "/placeholder.svg"}
                     alt={hero1?.name || "Empty slot"}
                     className="w-full h-full object-cover"
                   />
@@ -64,19 +66,19 @@ export default function RoomCard({
             </div>
 
             {/* VS Badge */}
-            <div className="relative z-20 transform transition-transform duration-300 hover:scale-110">
+            <div className="relative z-20 transform transition-transform duration-300 hover:scale-110 flex items-center justify-center">
               <div className="w-16 h-16 rounded-full bg-purple-500 border-4 border-neutral-800 shadow-lg flex items-center justify-center">
                 <Swords size={24} className="text-white" />
               </div>
-              <div className="absolute -top-1 -left-1 w-16 h-16 rounded-full border-4 border-purple-400/30 animate-ping" />
+              <div className="absolute size-16 rounded-full border-4 border-purple-400/30 animate-ping" />
             </div>
 
             {/* Hero 2 Card */}
             <div className="absolute top-1/2 -translate-y-1/2 rotate-12 transform transition-transform duration-300 hover:scale-105 hover:rotate-6 z-10 right-[4rem]">
               <div className="w-40 bg-neutral-800 rounded-lg overflow-hidden border-2 border-purple-500/50 shadow-lg">
                 <div className="aspect-square">
-                  <img 
-                    src={hero2?.image || "/placeholder.svg"} 
+                  <img
+                    src={hero2?.image || "/placeholder.svg"}
                     alt={hero2?.name || "Empty slot"}
                     className="w-full h-full object-cover"
                   />

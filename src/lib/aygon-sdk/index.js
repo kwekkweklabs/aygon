@@ -7,7 +7,10 @@ export class AygonSDK {
     "Content-Type": "application/json",
   };
 
-  constructor(apiKey = "", baseURL = import.meta.env.VITE_BACKEND_URL || "https://api.aygon.fun") {
+  constructor(
+    apiKey = "",
+    baseURL = import.meta.env.VITE_BACKEND_URL || "https://api.aygon.fun"
+  ) {
     if (apiKey) {
       this.headers = {
         ...this.headers,
@@ -26,7 +29,14 @@ export class AygonSDK {
   }
 
   async getRoomList({ signal }) {
-    const heros = await this.client.get("/room/list", { signal });
-    return heros.data;
+    const rooms = await this.client.get("/room/list", { signal });
+    return rooms.data;
+  }
+
+  async getRoomStates({ signal, roomId }) {
+    const roomState = await this.client.get(`/battle/${roomId}/states`, {
+      signal,
+    });
+    return roomState.data;
   }
 }
