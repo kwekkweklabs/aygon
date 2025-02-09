@@ -1,48 +1,67 @@
-import StarfieldEffect from '@/components/elements/StarfieldEffect'
-import { useAuth } from '@/providers/AuthProvider'
-import { useRoom } from '@/providers/RoomProvider'
-import { cnm } from '@/utils/style'
-import { Button, Modal, ModalBody, ModalContent, ModalHeader, Spinner } from '@heroui/react'
-import { Canvas } from '@react-three/fiber'
-import { SkullIcon, SwordIcon, TrophyIcon } from 'lucide-react'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router'
+import StarfieldEffect from "@/components/elements/StarfieldEffect";
+import BattleVisualizer from "@/components/play/BattleVisualizer";
+import { useAuth } from "@/providers/AuthProvider";
+import { useRoom } from "@/providers/RoomProvider";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  Spinner,
+} from "@heroui/react";
+import { Canvas } from "@react-three/fiber";
+import { Castle, SkullIcon, SwordIcon, TrophyIcon } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function RoomPage() {
-  const { currentRoom } = useRoom()
+  const { currentRoom } = useRoom();
+  const playingRef = useRef();
+
+  useEffect(() => {
+    if (currentRoom?.state === "PLAYING") {
+      const el = playingRef.current;
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [currentRoom?.state]);
+
   return (
-    <div className="w-full h-screen flex flex-col items-center px-5 overflow-hidden pt-12">
+    <div className="w-full h-screen flex flex-col items-center px-5 overflow-x-hidden pt-12">
       <div className="w-full h-screen fixed z-[0]">
         <Canvas>
           <StarfieldEffect />
         </Canvas>
       </div>
 
-      <div className='pt-[8rem] z-20 relative w-full container max-w-3xl mx-auto'>
-        <h1 className='text-center text-3xl font-bold'>
+      <div className="pt-[8rem] z-20 relative w-full container max-w-3xl mx-auto flex flex-col items-center">
+        <h1 className="text-center text-2xl font-semibold px-6 py-2 bg-primary/10 rounded-full text-primary flex items-center gap-2">
+          <Castle />
           {currentRoom?.name}
         </h1>
         {/* <div className='mt-8'>
           <RoomStateVisualizer />
         </div> */}
 
-        {!currentRoom &&
-          <div className='flex flex-col items-center justify-center py-[10rem]'>
-            <Spinner size='lg' color='primary' />
+        {!currentRoom && (
+          <div className="flex flex-col items-center justify-center py-[10rem]">
+            <Spinner size="lg" color="primary" />
           </div>
-        }
+        )}
 
         {/* {currentRoom?.state === "WAITING" && <IdleRoom />} */}
-        <IdleRoom />
+        <div className="mt-6">
+          <IdleRoom />
+        </div>
 
-        {currentRoom?.state === "PLAYING" &&
-          <div>
-            CURRENT BATTLE ID = {currentRoom?.currentBattleId}
+        {currentRoom?.state === "PLAYING" && (
+          <div ref={playingRef} className="w-full">
+            <BattleVisualizer currentRoomId={currentRoom?.currentBattleId} />
           </div>
-        }
+        )}
       </div>
     </div>
-  )
+  );
 }
 
 const IdleRoom = () => {
@@ -52,7 +71,9 @@ const IdleRoom = () => {
   const [selectedHero, setSelectedHero] = useState();
   const navigate = useNavigate();
 
-  const isUserJoined = currentRoom?.hero1?.user?.id === me?.id || currentRoom?.hero2?.user?.id === me?.id;
+  const isUserJoined =
+    currentRoom?.hero1?.user?.id === me?.id ||
+    currentRoom?.hero2?.user?.id === me?.id;
 
   const handleJoinRoom = async () => {
     await joinRoom(currentRoom?.id, selectedHero?.id);
@@ -61,11 +82,11 @@ const IdleRoom = () => {
 
   const handleLeaveRoom = async () => {
     await leaveRoom();
-    navigate('/play');
+    navigate("/play");
   };
 
   const HeroSlot = ({ hero, isPlayer2 = false }) => (
-    <div className="w-64 bg-neutral-900 rounded-xl overflow-hidden shadow-lg border border-neutral-700 transform transition-all duration-300 hover:scale-105 hover:border-purple-500">
+    <div className="w-64 bg-neutral-9x00 rounded-xl overflow-hidden shadow-lg border border-neutral-700 transform transition-all duration-300 hover:scale-105 hover:border-purple-500">
       <div className="relative aspect-square">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-900/60" />
         {hero ? (
@@ -76,13 +97,15 @@ const IdleRoom = () => {
           />
         ) : (
           <div className="w-full h-full bg-neutral-800 flex items-center justify-center">
-            <div className="text-neutral-500 text-lg font-semibold">Empty Slot</div>
+            <div className="text-neutral-500 text-lg font-semibold">
+              Empty Slot
+            </div>
           </div>
         )}
         <div className="absolute top-3 left-0 right-0 flex justify-center">
           <div className="bg-neutral-900/90 px-3 py-1 rounded-full border border-neutral-700/50">
             <h2 className="text-base font-semibold text-white truncate max-w-[200px]">
-              {hero ? hero.name : 'Waiting for Player'}
+              {hero ? hero.name : "Waiting for Player"}
             </h2>
           </div>
         </div>
@@ -113,7 +136,7 @@ const IdleRoom = () => {
   );
 
   return (
-    <div className="min-h-screen bg-neutral-950 p-8 z-20">
+    <div className="bg-neutral-900 rounded-2xl border border-white/10 p-8 z-20">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col gap-8">
           <div className="flex items-center justify-center gap-8">
@@ -147,7 +170,7 @@ const IdleRoom = () => {
             )}
 
             <Button
-              onPress={() => navigate('/play')}
+              onPress={() => navigate("/play")}
               className="bg-neutral-800 text-white font-bold px-8 py-6 rounded-xl hover:bg-neutral-700 transition-all"
             >
               Back to Lobby
@@ -163,8 +186,12 @@ const IdleRoom = () => {
         >
           <ModalContent>
             <ModalHeader className="flex flex-col gap-1">
-              <h2 className="text-2xl font-bold text-purple-400">Choose Your Hero</h2>
-              <p className="text-sm text-neutral-400">Select a champion to enter battle</p>
+              <h2 className="text-2xl font-bold text-purple-400">
+                Choose Your Hero
+              </h2>
+              <p className="text-sm text-neutral-400">
+                Select a champion to enter battle
+              </p>
             </ModalHeader>
             <ModalBody className="mb-6">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -174,14 +201,23 @@ const IdleRoom = () => {
                     <div
                       key={index}
                       onClick={() => setSelectedHero(hero)}
-                      className={`bg-neutral-900 rounded-xl overflow-hidden border cursor-pointer transition-all duration-300 hover:scale-105 ${isSelected ? 'border-purple-500 shadow-lg shadow-purple-500/20' : 'border-neutral-700'
-                        }`}
+                      className={`bg-neutral-900 rounded-xl overflow-hidden border cursor-pointer transition-all duration-300 hover:scale-105 ${
+                        isSelected
+                          ? "border-purple-500 shadow-lg shadow-purple-500/20"
+                          : "border-neutral-700"
+                      }`}
                     >
                       <div className="relative aspect-square">
-                        <img src={hero.image} alt={hero.name} className="w-full h-full object-cover" />
+                        <img
+                          src={hero.image}
+                          alt={hero.name}
+                          className="w-full h-full object-cover"
+                        />
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-900/60" />
                         <div className="absolute bottom-2 left-2 right-2">
-                          <div className="text-white font-semibold text-sm">{hero.name}</div>
+                          <div className="text-white font-semibold text-sm">
+                            {hero.name}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -195,7 +231,7 @@ const IdleRoom = () => {
                 isDisabled={!currentRoom?.id || !selectedHero?.id || loading}
                 isLoading={loading}
               >
-                {loading ? 'Joining Battle...' : 'Enter Battle!'}
+                {loading ? "Joining Battle..." : "Enter Battle!"}
               </Button>
             </ModalBody>
           </ModalContent>
@@ -206,19 +242,13 @@ const IdleRoom = () => {
 };
 
 const RoomStateVisualizer = () => {
-  const { currentRoom, joinRoom, leaveRoom } = useRoom()
+  const { currentRoom, joinRoom, leaveRoom } = useRoom();
 
   return (
     <div>
-      <div>
-        Room ID: {currentRoom?.id}
-      </div>
-      <div>
-        Name: {currentRoom?.name}
-      </div>
-      <div>
-        State: {currentRoom?.state}
-      </div>
+      <div>Room ID: {currentRoom?.id}</div>
+      <div>Name: {currentRoom?.name}</div>
+      <div>State: {currentRoom?.state}</div>
 
       <div>
         Hero1 ID: {currentRoom?.hero1?.id} | Hero2 ID: {currentRoom?.hero2?.id}
@@ -226,7 +256,7 @@ const RoomStateVisualizer = () => {
 
       <Button
         onPress={() => {
-          joinRoom(currentRoom?.id, 'cm6wde48n0008vd95uwkus09h')
+          joinRoom(currentRoom?.id, "cm6wde48n0008vd95uwkus09h");
         }}
       >
         Join with heroid
@@ -234,11 +264,11 @@ const RoomStateVisualizer = () => {
 
       <Button
         onPress={() => {
-          leaveRoom()
+          leaveRoom();
         }}
       >
         Leave Room
       </Button>
     </div>
-  )
-}
+  );
+};
