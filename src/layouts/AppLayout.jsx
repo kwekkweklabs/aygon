@@ -23,7 +23,7 @@ export default function AppLayout() {
         },
         loginMethods: [
           "email",
-          "google"
+          // "google"
         ],
         fundingMethodConfig: {
           moonpay: {
