@@ -22,7 +22,10 @@ export default function AppLayout() {
             "okx_wallet",
           ],
         },
-        loginMethods: ["email", "google"],
+        loginMethods: [
+          "email",
+          // "google"
+        ],
         fundingMethodConfig: {
           moonpay: {
             useSandbox: true,

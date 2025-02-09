@@ -1,6 +1,5 @@
-// authContext.js
 import { createContext, useContext, useEffect, useState } from 'react';
-import { PrivyProvider, usePrivy } from '@privy-io/react-auth';
+import { usePrivy } from '@privy-io/react-auth';
 import { useNavigate } from 'react-router-dom';
 import { Spinner } from '@heroui/react';
 
@@ -10,12 +9,17 @@ const AuthContext = createContext({
   login: () => { },
   logout: () => { },
   user: null,
-  ready: false
+  ready: false,
+  me: null,
+  isLoadingMe: true
 });
 
 export default function AuthProvider({ children }) {
   const [accessToken, setAccessToken] = useState(null);
+  const [me, setMe] = useState(null);
+  const [isLoadingMe, setIsLoadingMe] = useState(true);
   const navigate = useNavigate();
+  
   const {
     authenticated,
     getAccessToken,
@@ -25,9 +29,38 @@ export default function AuthProvider({ children }) {
     ready,
   } = usePrivy();
 
+  const fetchMeData = async () => {
+    try {
+      setIsLoadingMe(true);
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify({
+          email: user?.email?.address
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch ME data');
+      }
+
+      const data = await response.json();
+      setMe(data);
+    } catch (error) {
+      console.error('Error fetching ME data:', error);
+      // Optionally handle error state here
+    } finally {
+      setIsLoadingMe(false);
+    }
+  };
+
   useEffect(() => {
     if (ready) {
       console.log('Authenticated:', authenticated);
+      
       // If user is not authenticated and trying to access protected routes
       if (!authenticated && window.location.pathname.startsWith('/play')) {
         navigate('/login');
@@ -49,17 +82,37 @@ export default function AuthProvider({ children }) {
     }
   }, [authenticated, ready, navigate, getAccessToken]);
 
+  // Effect to fetch ME data when we have both user and accessToken
+  useEffect(() => {
+    if (ready && authenticated && accessToken && user?.email) {
+      fetchMeData();
+    }
+  }, [ready, authenticated, accessToken, user?.email]);
+
   const value = {
     authenticated,
     accessToken,
     login,
     logout,
     user,
-    ready
+    ready,
+    me,
+    isLoadingMe
   };
 
-  return (
+  // Show loading spinner while fetching ME data if authenticated
+  if (ready && authenticated && isLoadingMe) {
+    return (
+      <div className="w-screen h-screen flex flex-col items-center justify-center">
+        <Spinner size="lg" />
+        <div>
+          <p className="text-lg animate-pulse mt-2">Loading your data...</p>
+        </div>
+      </div>
+    );
+  }
 
+  return (
     <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
@@ -75,11 +128,10 @@ export function useAuth() {
   return context;
 }
 
-// Example usage in a protected route component
 export function ProtectedRoute({ children }) {
   const isAuthDisabled = import.meta.env.VITE_DISABLE_AUTH === 'true';
 
-  const { authenticated, ready } = useAuth();
+  const { authenticated, ready, isLoadingMe } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -93,12 +145,12 @@ export function ProtectedRoute({ children }) {
     return children;
   }
 
-  if (!ready) {
+  if (!ready || (authenticated && isLoadingMe)) {
     return (
-      <div className='w-screen h-screen flex flex-col items-center justify-center'>
-        <Spinner size='lg' />
+      <div className="w-screen h-screen flex flex-col items-center justify-center">
+        <Spinner size="lg" />
         <div>
-          <p className='text-lg animate-pulse mt-2'>Please wait</p>
+          <p className="text-lg animate-pulse mt-2">Please wait...</p>
         </div>
       </div>
     );
