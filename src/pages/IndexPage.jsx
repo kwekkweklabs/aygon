@@ -102,6 +102,16 @@ function Hero() {
               Play Now
             </p>
           </Link>
+
+          <div className="flex flex-col items-center mt-16">
+            <h2 className="text-xl font-semibold">
+              Powered by
+            </h2>
+
+            <div className="text-3xl mt-4">
+              GaiaNet, Privy, and Covalent
+            </div>
+          </div>
         </div>
 
         <div className="absolute bottom-0 text-white font-poppins rounded-t-2xl px-6 py-6 font-semibold flex items-center gap-2">
@@ -146,8 +156,8 @@ function Features() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
           <FeatureCard
             icon={<Zap className="w-12 h-12 text-yellow-400" />}
-            title="Upgrade your hero"
-            description="Enhance your character with powerful upgrades and unique abilities. Customize your hero to fit your playstyle and dominate the battlefield."
+            title="Create ANY hero"
+            description="Anything! Basically anything you can think of, you can create it."
           />
           <FeatureCard
             icon={<Brain className="w-12 h-12 text-blue-400" />}
