@@ -239,12 +239,12 @@ const resetRooms = async () => {
   }
 };
 
-process.on('SIGINT', async () => {
-  console.log('SIGINT received, closing server');
-  await resetRooms();
-  await fastify.close();
-  process.exit(0);
-})
+// process.on('SIGINT', async () => {
+//   console.log('SIGINT received, closing server');
+//   await resetRooms();
+//   await fastify.close();
+//   process.exit(0);
+// })
 
 
 start();
