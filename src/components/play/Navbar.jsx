@@ -162,9 +162,7 @@ const WalletButton = () => {
         }),
       });
 
-      // if (response.ok) {
-      //   handleCloseModal();
-      // }
+      handleCloseModal();
     } catch (error) {
       console.error('Withdrawal failed:', error);
     } finally {
