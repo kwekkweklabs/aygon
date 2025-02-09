@@ -3,13 +3,16 @@ import { Button, Card, Input, Modal, ModalBody, ModalContent, ModalHeader, Popov
 import { CopyIcon, LogOutIcon } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react';
+import { Link } from 'react-router';
 
 export default function Navbar() {
   const { me, authenticated } = useAuth()
   return (
-    <div className='fixed top-0 w-full bg-[#191430] p-4 z-20'>
+    <div className='fixed top-0 w-full bg-[#191430] p-4 z-50'>
       <div className='flex flex-row items-center justify-between'>
-        <img src='/aygon-logo.png' alt='Aygon Logo' className='w-[8rem]' />
+        <Link to="/play">
+          <img src='/aygon-logo.png' alt='Aygon Logo' className='w-[8rem]' />
+        </Link>
 
         {(me && authenticated) &&
           <AccountButton />
@@ -66,7 +69,7 @@ const AccountButton = () => {
 }
 
 const WalletButton = () => {
-  const { me } = useAuth();
+  const { me, accessToken } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [withdrawAmount, setWithdrawAmount] = useState('');
   const [withdrawAddress, setWithdrawAddress] = useState('');
@@ -151,16 +154,17 @@ const WalletButton = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
           amount: withdrawAmount,
-          address: withdrawAddress,
+          recipient: withdrawAddress,
         }),
       });
 
-      if (response.ok) {
-        handleCloseModal();
-      }
+      // if (response.ok) {
+      //   handleCloseModal();
+      // }
     } catch (error) {
       console.error('Withdrawal failed:', error);
     } finally {

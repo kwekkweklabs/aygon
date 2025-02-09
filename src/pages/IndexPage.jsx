@@ -78,8 +78,8 @@ function Hero() {
         <div className="w-full flex items-center justify-between p-10 relative">
           <img src="/aygon-logo.png" alt="" className="w-28 z-10" />
           <div className="font-bold font-poppins flex items-center gap-4">
-            <button>Home</button>
-            <button>About</button>
+            {/* <button>Home</button> */}
+            {/* <button>About</button> */}
           </div>
         </div>
         <div className="flex flex-col items-center mt-28 relative">
@@ -127,12 +127,12 @@ function Hero() {
         </div>
 
         {/* cards */}
-        <div className="absolute top-[40%] -translate-y-1/2 left-32 -rotate-6">
+        {/* <div className="absolute top-[40%] -translate-y-1/2 left-32 -rotate-6">
           <Parallax speed={-3}>
             <CharCard imageUrl={jinxSrc} />
           </Parallax>
-        </div>
-        <div className="absolute top-1/2 -translate-y-1/2 right-32 rotate-12">
+        </div> */}
+        {/* <div className="absolute top-1/2 -translate-y-1/2 right-32 rotate-12">
           <Parallax speed={3} rotate={4}>
             <CharCard
               imageUrl={jinxSrc}
@@ -140,7 +140,7 @@ function Hero() {
               class="Cosmos Fighter"
             />
           </Parallax>
-        </div>
+        </div> */}
       </div>
     </section>
   );

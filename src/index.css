@@ -5,3 +5,8 @@
 body {
   @apply antialiased bg-black text-white font-poppins;
 }
+
+html{
+  scroll-behavior: smooth;
+  @apply bg-black dark;
+}
