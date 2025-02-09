@@ -48,7 +48,7 @@ export default function PlayPage() {
         </div>
 
         {/* Rooms */}
-        <div className="w-full flex flex-col gap-6">
+        <div className="w-full flex flex-col gap-6 mt-8">
           <p className="font-poppins font-semibold text-2xl">Rooms</p>
           <Skeleton
             isLoaded={!isRoomListLoading}

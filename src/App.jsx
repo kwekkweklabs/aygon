@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import RootProvider from "./providers/RootProvider";
 import IndexLayout from "./layouts/IndexLayout";
 import IndexPage from "./pages/IndexPage";
-import { LazyLoginPage, LazyPlayPage } from "./routes";
+import { LazyLoginPage, LazyPlayBattlePage, LazyPlayPage } from "./routes";
 import AppLayout from "./layouts/AppLayout";
 import { ProtectedRoute } from "./providers/AuthProvider";
 
@@ -21,6 +21,14 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <LazyPlayPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="play/battle"
+              element={
+                <ProtectedRoute>
+                  <LazyPlayBattlePage />
                 </ProtectedRoute>
               }
             />

@@ -16,7 +16,7 @@ export default function HeroCard({
           <h2 className="text-lg font-bold text-white truncate">{name}</h2>
         </div>
       </div>
-      <div className="p-4">
+      <div className="px-4 pb-4">
         <p>{desc}</p>
       </div>
     </div>
