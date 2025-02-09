@@ -90,6 +90,13 @@ export default function BattleVisualizer({ currentRoomId }) {
 
   console.log({ processedTurns: processedTurnsRef.current });
 
+  function play(soundPath) {
+    const audio = new Audio(soundPath);
+    audio.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+  }
+
   // Handle state updates and refetching
   useEffect(() => {
     if (isRoomStatesLoading || isBattleFinished) return;
@@ -169,6 +176,14 @@ export default function BattleVisualizer({ currentRoomId }) {
         setBattleHistory((prev) => [...prev, state.commentary]);
 
         if (state.action) {
+          if (state.action.soundEffects) {
+            state.action.soundEffects.forEach((soundPath) => {
+              const sound = new Howl({
+                src: [`/assets/audio/${soundPath}`],
+              });
+              sound.play();
+            });
+          }
           setLatestAction({
             ...state.action,
             timestamp: Date.now(),
