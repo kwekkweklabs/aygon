@@ -39,12 +39,12 @@ export const handleStartBattle = async (roomId) => {
   // const aiProvider = new AIProvider('ollama', {
   //   model: 'llama3.2:latest'
   // });
-  const aiProvider = new AIProvider('openai', {
-    model: 'gpt-4o',
-    apiKey: process.env.OPENAI_API_KEY
-  });
-  // const aiProvider = new AIProvider('gaia', {
+  // const aiProvider = new AIProvider('openai', {
+  //   model: 'gpt-4o',
+  //   apiKey: process.env.OPENAI_API_KEY
   // });
+  const aiProvider = new AIProvider('gaia', {
+  });
 
 
   // Create battle and get the battle instance

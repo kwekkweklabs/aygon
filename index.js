@@ -226,12 +226,13 @@ const start = async () => {
 const resetRooms = async () => {
   try {
     await prismaQuery.room.updateMany({
-      where: {
-        hero2Id: {
-          not: null
-        }
-      },
+      // where: {
+      //   hero2Id: {
+      //     not: null
+      //   }
+      // },
       data: {
+        hero1Id: null,
         hero2Id: null,
         state: 'WAITING',
         currentBattleId: null
@@ -244,12 +245,12 @@ const resetRooms = async () => {
   }
 };
 
-// process.on('SIGINT', async () => {
-//   console.log('SIGINT received, closing server');
-//   await resetRooms();
-//   await fastify.close();
-//   process.exit(0);
-// })
+process.on('SIGINT', async () => {
+  console.log('SIGINT received, closing server');
+  await resetRooms();
+  await fastify.close();
+  process.exit(0);
+})
 
 
 start();

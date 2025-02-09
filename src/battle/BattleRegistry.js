@@ -174,7 +174,7 @@ export class BattleRegistry {
       await prismaQuery.room.updateMany({
         where: { currentBattleId: battleId },
         data: {
-          // hero1Id: null,
+          hero1Id: null,
           hero2Id: null,
           state: 'WAITING',
           currentBattleId: null
