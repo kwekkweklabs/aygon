@@ -7,6 +7,7 @@ const _LazyIndexPage = lazy(() => import("./pages/IndexPage"));
 const _LazyPlayPage = lazy(() => import("./pages/PlayPage"));
 const _LazyPlayBattlePage = lazy(() => import("./pages/PlayBattlePage"));
 const _LazyLoginPage = lazy(() => import("./pages/LoginPage"));
+const _LazyRoomPage = lazy(() => import("./pages/RoomPage"));
 
 const LazyRouteLoadingSpinner = () => {
   return (
@@ -43,5 +44,12 @@ export const LazyPlayBattlePage = () => (
 export const LazyLoginPage = () => (
   <Suspended loading={<LazyRouteLoadingSpinner />}>
     <_LazyLoginPage />
+  </Suspended>
+);
+
+
+export const LazyRoomPage = () => (
+  <Suspended loading={<LazyRouteLoadingSpinner />}>
+    <_LazyRoomPage />
   </Suspended>
 );

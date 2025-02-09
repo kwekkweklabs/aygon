@@ -3,10 +3,13 @@ import CreateHeroButton from "@/components/play/CreateHeroButton";
 import HeroCard from "@/components/play/HeroCard";
 import RoomCard from "@/components/play/RoomCard";
 import { useAygonQuery } from "@/lib/aygon-sdk/query";
-import { Skeleton } from "@heroui/react";
+import { useAuth } from "@/providers/AuthProvider";
+import { Button, Skeleton } from "@heroui/react";
 import { Canvas } from "@react-three/fiber";
+import axios from "axios";
 
 export default function PlayPage() {
+  const { accessToken } = useAuth();
   const {
     data: heroList,
     isLoading: isHeroListLoading,
@@ -14,17 +17,32 @@ export default function PlayPage() {
   } = useAygonQuery({
     queryKey: ["hero-list"],
     queryFn: async ({ sdk, context }) => {
-      const res = await sdk.getUserHeroes({ signal: context.signal });
-      console.log("Hero List", res);
-      return res;
+      const res = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/hero/my-hero`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      return res.data;
     },
   });
 
   const { data: roomList, isLoading: isRoomListLoading } = useAygonQuery({
     queryKey: ["room-list"],
     queryFn: async ({ sdk, context }) => {
-      const res = await sdk.getRoomList({ signal: context.signal });
-      return res;
+      const res = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/room/list`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      return res.data;
     },
   });
 
@@ -84,6 +102,7 @@ export default function PlayPage() {
                     hero2={room.hero2}
                     name={room.name}
                     state={room.state}
+                    roomId={room.id}
                   />
                 ))}
               </div>

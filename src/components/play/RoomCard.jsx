@@ -1,7 +1,10 @@
 import React from "react";
 import { Swords, Users, Clock } from "lucide-react";
+import { Button } from "@heroui/react";
+import { useNavigate } from "react-router";
 
 export default function RoomCard({
+  roomId = null,
   name = "Room 1",
   hero1 = null,
   hero2 = null,
@@ -29,6 +32,7 @@ export default function RoomCard({
   };
 
   const status = statusConfig[state] || statusConfig.WAITING;
+  const navigate = useNavigate();
 
   return (
     <div className="w-full bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800 shadow-lg hover:border-purple-500/50 transition-all duration-300">
@@ -100,10 +104,16 @@ export default function RoomCard({
 
       {/* Action Button */}
       <div className="p-4 pt-0 mt-4">
-        <button className="w-full px-4 py-2 rounded-lg bg-purple-500 hover:bg-purple-600 text-white font-medium transition-colors duration-200 flex items-center justify-center gap-2">
+        <Button
+          size="lg"
+          className="w-full px-4 py-2 rounded-lg bg-purple-500 hover:bg-purple-600 text-white font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+          onPress={() => {
+            navigate(`/room/${roomId}`);
+          }}
+        >
           <Users size={16} />
           Join Battle
-        </button>
+        </Button>
       </div>
     </div>
   );
