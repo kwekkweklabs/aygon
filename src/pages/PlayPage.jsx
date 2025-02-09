@@ -7,7 +7,11 @@ import { Button, Skeleton } from "@heroui/react";
 import { Canvas } from "@react-three/fiber";
 
 export default function PlayPage() {
-  const { data: heroList, isLoading: isHeroListLoading, refetch: refetchHero } = useAygonQuery({
+  const {
+    data: heroList,
+    isLoading: isHeroListLoading,
+    refetch: refetchHero,
+  } = useAygonQuery({
     queryKey: ["hero-list"],
     queryFn: async ({ sdk, context }) => {
       const res = await sdk.getUserHeroes({ signal: context.signal });
@@ -38,9 +42,7 @@ export default function PlayPage() {
           <div className="flex flex-row items-center justify-between">
             <p className="font-poppins font-semibold text-2xl">My Heroes</p>
 
-            <CreateHeroButton 
-              refetchHero={refetchHero}
-            />
+            <CreateHeroButton refetchHero={refetchHero} />
           </div>
 
           <Skeleton
@@ -95,4 +97,3 @@ export default function PlayPage() {
     </div>
   );
 }
-

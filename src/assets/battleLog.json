@@ -1,0 +1,841 @@
+[
+  {
+      "id": "cm6wmpw700000vdie9ihjpuz4",
+      "turnIndex": 0,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 100,
+          "effects": [],
+          "specialMeter": 0
+      },
+      "hero2State": {
+          "hp": 100,
+          "effects": [],
+          "specialMeter": 0
+      },
+      "commentary": "⚔️ Battle begins between Farhan the Chill-smoker and OIIA Cat! ⚔️",
+      "action": null
+  },
+  {
+      "id": "cm6wmpxl40001vdien3b4vnev",
+      "turnIndex": 1,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 84,
+          "effects": [],
+          "specialMeter": 23
+      },
+      "hero2State": {
+          "hp": 100,
+          "effects": [],
+          "specialMeter": 30
+      },
+      "commentary": "👊💪😾 OIIA Cat's ATTACK:\nQuickly pounces on Farhan with sharp claws\nDamage: 16 (Farhan the Chill-smoker's HP: 100 → 84)\nSpecial Meters - OIIA Cat: 30%, Farhan the Chill-smoker: 23%\nTactical Analysis: Pouncing on an unsuspecting Farhan to exploit his relaxed state\nJudge's Commentary: Aggressive pounce takes advantage of Farhan's momentary distraction, aiming to deal significant damage before he can react.",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 1,
+          "actor": "hero2",
+          "damage": 16,
+          "effect": "NONE",
+          "emojis": [
+              "👊",
+              "💪",
+              "😾"
+          ],
+          "basePower": 14,
+          "timestamp": "2025-02-08T20:09:43.239Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Quickly pounces on Farhan with sharp claws",
+          "judgeCommentary": "Aggressive pounce takes advantage of Farhan's momentary distraction, aiming to deal significant damage before he can react.",
+          "tacticalReasoning": "Pouncing on an unsuspecting Farhan to exploit his relaxed state"
+      }
+  },
+  {
+      "id": "cm6wmq1740002vdie6a4de5ks",
+      "turnIndex": 2,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 84,
+          "effects": [],
+          "specialMeter": 48
+      },
+      "hero2State": {
+          "hp": 100,
+          "effects": [],
+          "specialMeter": 30
+      },
+      "commentary": "🕊️😴 Farhan the Chill-smoker's ATTACK:\nLures OIIA Cat into a trap with calming smoke\nSpecial Meters - Farhan the Chill-smoker: 48%, OIIA Cat: 30%\nTactical Analysis: Disorienting opponent while preparing for counterattack\nJudge's Commentary: Calming smoke lures OIIA Cat into a trap, taking advantage of the element of surprise and setting up Farhan for a potential counterattack, but lacking direct damage output to fully impact the opponent's HP.",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 2,
+          "actor": "hero1",
+          "damage": 19,
+          "effect": "NONE",
+          "emojis": [
+              "🕊️",
+              "😴"
+          ],
+          "basePower": 14,
+          "timestamp": "2025-02-08T20:09:47.918Z",
+          "actionType": "ATTACK",
+          "targetType": "DEFENSIVE",
+          "description": "Lures OIIA Cat into a trap with calming smoke",
+          "judgeCommentary": "Calming smoke lures OIIA Cat into a trap, taking advantage of the element of surprise and setting up Farhan for a potential counterattack, but lacking direct damage output to fully impact the opponent's HP.",
+          "tacticalReasoning": "Disorienting opponent while preparing for counterattack"
+      }
+  },
+  {
+      "id": "cm6wmq4qg0003vdietp9lyye9",
+      "turnIndex": 3,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 66,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 3,
+                  "validUntilTurn": 5
+              }
+          ],
+          "specialMeter": 72
+      },
+      "hero2State": {
+          "hp": 100,
+          "effects": [],
+          "specialMeter": 60
+      },
+      "commentary": "⚔️👊 OIIA Cat's ATTACK:\nDelivers a quick swipe of razor-sharp claws\nDamage: 18 (Farhan the Chill-smoker's HP: 84 → 66)\nEffect: STUN applied!\nSpecial Meters - OIIA Cat: 60%, Farhan the Chill-smoker: 72%\nTactical Analysis: Taking advantage of opponent's exposed position after luring trap.\nJudge's Commentary: Quick swipe of razor-sharp claws capitalizes on Farhan's exposed position, landing a decisive blow before he could react to the trap.",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 3,
+          "actor": "hero2",
+          "damage": 18,
+          "effect": "STUN",
+          "emojis": [
+              "⚔️",
+              "👊"
+          ],
+          "basePower": 15,
+          "timestamp": "2025-02-08T20:09:52.503Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Delivers a quick swipe of razor-sharp claws",
+          "judgeCommentary": "Quick swipe of razor-sharp claws capitalizes on Farhan's exposed position, landing a decisive blow before he could react to the trap.",
+          "tacticalReasoning": "Taking advantage of opponent's exposed position after luring trap."
+      }
+  },
+  {
+      "id": "cm6wmq7tg0004vdielayl25jd",
+      "turnIndex": 4,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 66,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 3,
+                  "validUntilTurn": 5
+              }
+          ],
+          "specialMeter": 87
+      },
+      "hero2State": {
+          "hp": 100,
+          "effects": [],
+          "specialMeter": 75
+      },
+      "commentary": "⚔️🔄😺 Farhan the Chill-smoker's ATTACK:\nDarts in quickly with spinning hook attack\nDamage: 0 (OIIA Cat's HP: 100 → 100)\nSpecial Meters - Farhan the Chill-smoker: 87%, OIIA Cat: 75%\nTactical Analysis: Taking advantage of OIIA Cat's momentary overconfidence after their last move\nJudge's Commentary: The attack misses completely!",
+      "action": {
+          "crit": false,
+          "miss": true,
+          "turn": 4,
+          "actor": "hero1",
+          "damage": 0,
+          "effect": "NONE",
+          "emojis": [
+              "⚔️",
+              "🔄",
+              "😺"
+          ],
+          "basePower": 12,
+          "timestamp": "2025-02-08T20:09:56.498Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Darts in quickly with spinning hook attack",
+          "judgeCommentary": "The attack misses completely!",
+          "tacticalReasoning": "Taking advantage of OIIA Cat's momentary overconfidence after their last move"
+      }
+  },
+  {
+      "id": "cm6wmqby70005vdie00mqlx7t",
+      "turnIndex": 5,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 52,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 5,
+                  "validUntilTurn": 7
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 100,
+          "effects": [],
+          "specialMeter": 100
+      },
+      "commentary": "⚔️↩️👊 OIIA Cat's ATTACK:\nQuickly strikes with spinning hook attack from unexpected angle\nDamage: 14 (Farhan the Chill-smoker's HP: 66 → 52)\nEffect: STUN applied!\nSpecial Meters - OIIA Cat: 100%, Farhan the Chill-smoker: 100%\nTactical Analysis: Capitalizing on stunned state and exploiting Farhan's defensive gaps\nJudge's Commentary: Capitalizing on Farhan's defensive gaps and stunned state, the spinning hook attack is a well-timed and effective counter-attack that catches OIIA Cat off guard. The base power of 12 may not deal massive damage, but its surprise element makes it difficult for OIIA Cat to react in time. Note: The effectiveness multiplier of 1.2 indicates that the move's power is slightly above average, considering the context of the battle and Farhan's current state.",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 5,
+          "actor": "hero2",
+          "damage": 14,
+          "effect": "STUN",
+          "emojis": [
+              "⚔️",
+              "↩️",
+              "👊"
+          ],
+          "basePower": 12,
+          "timestamp": "2025-02-08T20:10:01.852Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Quickly strikes with spinning hook attack from unexpected angle",
+          "judgeCommentary": "Capitalizing on Farhan's defensive gaps and stunned state, the spinning hook attack is a well-timed and effective counter-attack that catches OIIA Cat off guard. The base power of 12 may not deal massive damage, but its surprise element makes it difficult for OIIA Cat to react in time. Note: The effectiveness multiplier of 1.2 indicates that the move's power is slightly above average, considering the context of the battle and Farhan's current state.",
+          "tacticalReasoning": "Capitalizing on stunned state and exploiting Farhan's defensive gaps"
+      }
+  },
+  {
+      "id": "cm6wmqfw50006vdieviycd0w1",
+      "turnIndex": 6,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 52,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 5,
+                  "validUntilTurn": 7
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 100,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 6,
+                  "validUntilTurn": 8
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "↩️🤔👊 Farhan the Chill-smoker's ATTACK:\nQuickly swipes hook from side with cautious aim\nEffect: STUN applied!\nSpecial Meters - Farhan the Chill-smoker: 100%, OIIA Cat: 100%\nTactical Analysis: Testing opponent's reaction to my defensive positioning\nJudge's Commentary: Farhan's cautious aim and defensive positioning force the opponent to react, potentially creating an opening for a well-timed attack. Note: The effectiveness multiplier is based on the fact that Farhan is trying to test the opponent's reaction, which might not be the most effective strategy in terms of raw power. However, it's a clever tactical move that can lead to opportunities for counter-attacks.",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 6,
+          "actor": "hero1",
+          "damage": 9,
+          "effect": "STUN",
+          "emojis": [
+              "↩️",
+              "🤔",
+              "👊"
+          ],
+          "basePower": 10,
+          "timestamp": "2025-02-08T20:10:06.964Z",
+          "actionType": "ATTACK",
+          "targetType": "DEFENSIVE",
+          "description": "Quickly swipes hook from side with cautious aim",
+          "judgeCommentary": "Farhan's cautious aim and defensive positioning force the opponent to react, potentially creating an opening for a well-timed attack. Note: The effectiveness multiplier is based on the fact that Farhan is trying to test the opponent's reaction, which might not be the most effective strategy in terms of raw power. However, it's a clever tactical move that can lead to opportunities for counter-attacks.",
+          "tacticalReasoning": "Testing opponent's reaction to my defensive positioning"
+      }
+  },
+  {
+      "id": "cm6wmqjh20007vdie6he7e7zj",
+      "turnIndex": 7,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 38,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 7,
+                  "validUntilTurn": 9
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 100,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 6,
+                  "validUntilTurn": 8
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "↩️⚔️👊 OIIA Cat's ATTACK:\nSwipes hook from side with cautious aim in retaliation\nDamage: 14 (Farhan the Chill-smoker's HP: 52 → 38)\nEffect: STUN applied!\nSpecial Meters - OIIA Cat: 100%, Farhan the Chill-smoker: 100%\nTactical Analysis: Punishing opponent's initial aggression while managing stun effect\nJudge's Commentary: Perfect counter-attack timing, capitalizing on the opponent's initial aggression and maintaining pressure while also disrupting their ability to act freely for a turn. A critical hit!",
+      "action": {
+          "crit": true,
+          "miss": false,
+          "turn": 7,
+          "actor": "hero2",
+          "damage": 14,
+          "effect": "STUN",
+          "emojis": [
+              "↩️",
+              "⚔️",
+              "👊"
+          ],
+          "basePower": 12,
+          "timestamp": "2025-02-08T20:10:11.605Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Swipes hook from side with cautious aim in retaliation",
+          "judgeCommentary": "Perfect counter-attack timing, capitalizing on the opponent's initial aggression and maintaining pressure while also disrupting their ability to act freely for a turn. A critical hit!",
+          "tacticalReasoning": "Punishing opponent's initial aggression while managing stun effect"
+      }
+  },
+  {
+      "id": "cm6wmqn5m0008vdiezkejello",
+      "turnIndex": 8,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 38,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 7,
+                  "validUntilTurn": 9
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 88,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 8,
+                  "validUntilTurn": 10
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "⚔️💨👊 Farhan the Chill-smoker's ATTACK:\nSeeks to exploit stunned state with high-damage slash\nDamage: 12 (OIIA Cat's HP: 100 → 88)\nEffect: STUN applied!\nSpecial Meters - Farhan the Chill-smoker: 100%, OIIA Cat: 100%\nTactical Analysis: Tries to finish OIIA Cat off before next stun wears off\nJudge's Commentary: Seeks to capitalize on stunned state with high-damage slash, putting pressure on OIIA Cat before next stun wears off.]",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 8,
+          "actor": "hero1",
+          "damage": 12,
+          "effect": "STUN",
+          "emojis": [
+              "⚔️",
+              "💨",
+              "👊"
+          ],
+          "basePower": 18,
+          "timestamp": "2025-02-08T20:10:16.377Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Seeks to exploit stunned state with high-damage slash",
+          "judgeCommentary": "Seeks to capitalize on stunned state with high-damage slash, putting pressure on OIIA Cat before next stun wears off.]",
+          "tacticalReasoning": "Tries to finish OIIA Cat off before next stun wears off"
+      }
+  },
+  {
+      "id": "cm6wmqqpg0009vdiei44zympw",
+      "turnIndex": 9,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 23,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 9,
+                  "validUntilTurn": 11
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 88,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 8,
+                  "validUntilTurn": 10
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "♃️🎶😺 OIIA Cat's ATTACK:\nQuick spinning slash with a hint of musical melody\nDamage: 15 (Farhan the Chill-smoker's HP: 38 → 23)\nEffect: STUN applied!\nSpecial Meters - OIIA Cat: 100%, Farhan the Chill-smoker: 100%\nTactical Analysis: Capitalizing on Farhan's stun state and musical distraction\nJudge's Commentary: Seeks to capitalize on Farhan's stun state, utilizing musical distraction as a tool to disorient and leave him vulnerable to attack.",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 9,
+          "actor": "hero2",
+          "damage": 15,
+          "effect": "STUN",
+          "emojis": [
+              "♃️",
+              "🎶",
+              "😺"
+          ],
+          "basePower": 14,
+          "timestamp": "2025-02-08T20:10:20.979Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Quick spinning slash with a hint of musical melody",
+          "judgeCommentary": "Seeks to capitalize on Farhan's stun state, utilizing musical distraction as a tool to disorient and leave him vulnerable to attack.",
+          "tacticalReasoning": "Capitalizing on Farhan's stun state and musical distraction"
+      }
+  },
+  {
+      "id": "cm6wmquae000avdieq5rf65xg",
+      "turnIndex": 10,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 23,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 9,
+                  "validUntilTurn": 11
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 88,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 10,
+                  "validUntilTurn": 12
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "🎶😴🔁 Farhan the Chill-smoker's ATTACK:\nLures OIIA Cat into a trap with a soothing melody\nEffect: STUN applied!\nSpecial Meters - Farhan the Chill-smoker: 100%, OIIA Cat: 100%\nTactical Analysis: Using Farhan's calming presence to lure Cat into a defensive state.\nJudge's Commentary: Farhan's soothing melody lures Cat into a defensive state, setting the stage for a potentially decisive turn in the battle.",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 10,
+          "actor": "hero1",
+          "damage": 15,
+          "effect": "STUN",
+          "emojis": [
+              "🎶",
+              "😴",
+              "🔁"
+          ],
+          "basePower": 16,
+          "timestamp": "2025-02-08T20:10:25.620Z",
+          "actionType": "ATTACK",
+          "targetType": "TACTICAL",
+          "description": "Lures OIIA Cat into a trap with a soothing melody",
+          "judgeCommentary": "Farhan's soothing melody lures Cat into a defensive state, setting the stage for a potentially decisive turn in the battle.",
+          "tacticalReasoning": "Using Farhan's calming presence to lure Cat into a defensive state."
+      }
+  },
+  {
+      "id": "cm6wmqydy000bvdiejcoyhirb",
+      "turnIndex": 11,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 8,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 11,
+                  "validUntilTurn": 13
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 88,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 10,
+                  "validUntilTurn": 12
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "🕺💪🔥 OIIA Cat's ATTACK:\nUses spinning skills to close distance quickly\nDamage: 15 (Farhan the Chill-smoker's HP: 23 → 8)\nEffect: STUN applied!\nSpecial Meters - OIIA Cat: 100%, Farhan the Chill-smoker: 100%\nTactical Analysis: Capitalizing on stunned state and closing the distance for a swift strike\nJudge's Commentary: OIIA Cat's spinning skills capitalize on the hero2's stunned state, quickly closing the distance and creating an opportunity for a swift strike. This response is effective because it considers the current battle state, previous actions, and the hero2's status effect (stunned). The analysis highlights how OIIA Cat's action exploits the hero2's vulnerability while also emphasizing the swift nature of the attack. A critical hit!",
+      "action": {
+          "crit": true,
+          "miss": false,
+          "turn": 11,
+          "actor": "hero2",
+          "damage": 15,
+          "effect": "STUN",
+          "emojis": [
+              "🕺",
+              "💪",
+              "🔥"
+          ],
+          "basePower": 15,
+          "timestamp": "2025-02-08T20:10:30.933Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Uses spinning skills to close distance quickly",
+          "judgeCommentary": "OIIA Cat's spinning skills capitalize on the hero2's stunned state, quickly closing the distance and creating an opportunity for a swift strike. This response is effective because it considers the current battle state, previous actions, and the hero2's status effect (stunned). The analysis highlights how OIIA Cat's action exploits the hero2's vulnerability while also emphasizing the swift nature of the attack. A critical hit!",
+          "tacticalReasoning": "Capitalizing on stunned state and closing the distance for a swift strike"
+      }
+  },
+  {
+      "id": "cm6wmr201000cvdie7oshdbli",
+      "turnIndex": 12,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 8,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 11,
+                  "validUntilTurn": 13
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 88,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 12,
+                  "validUntilTurn": 14
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "🔥😒🕵️‍♂️ Farhan the Chill-smoker's ATTACK:\nFires a smoke bomb to disorient the spinning cat\nEffect: STUN applied!\nSpecial Meters - Farhan the Chill-smoker: 100%, OIIA Cat: 100%\nTactical Analysis: Taking advantage of opponent's stunlock while trying to close distance\nJudge's Commentary: Farhan's smoke bomb successfully disorients the spinning cat, creating an opening for a potential close-range attack or follow-up move. A critical hit!",
+      "action": {
+          "crit": true,
+          "miss": false,
+          "turn": 12,
+          "actor": "hero1",
+          "damage": 19,
+          "effect": "STUN",
+          "emojis": [
+              "🔥",
+              "😒",
+              "🕵️‍♂️"
+          ],
+          "basePower": 14,
+          "timestamp": "2025-02-08T20:10:35.616Z",
+          "actionType": "ATTACK",
+          "targetType": "TACTICAL",
+          "description": "Fires a smoke bomb to disorient the spinning cat",
+          "judgeCommentary": "Farhan's smoke bomb successfully disorients the spinning cat, creating an opening for a potential close-range attack or follow-up move. A critical hit!",
+          "tacticalReasoning": "Taking advantage of opponent's stunlock while trying to close distance"
+      }
+  },
+  {
+      "id": "cm6wmr5un000dvdiehb92dafz",
+      "turnIndex": 13,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 8,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 11,
+                  "validUntilTurn": 13
+              },
+              {
+                  "type": "FREEZE",
+                  "damage": 3,
+                  "duration": 2,
+                  "modifier": 0.8,
+                  "turnAdded": 13,
+                  "validUntilTurn": 15
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 88,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 12,
+                  "validUntilTurn": 14
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "🛡️😴 OIIA Cat's DEFEND:\nCreates an energy barrier while recovering from stun\nEffect: FREEZE applied!\nSpecial Meters - OIIA Cat: 100%, Farhan the Chill-smoker: 100%\nTactical Analysis: Stabilizing defenses as stun effects wear off\nJudge's Commentary: OIIA Cat's defensive posture is timely, effectively countering the spin attack and creating an opportunity for a swift counterstrike. Note: I chose \"FREEZE\" as the Special Effect because the energy barrier move creates a momentary pause in the action, allowing OIIA Cat to recover from the stun effect and potentially turn the tide of battle.",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 13,
+          "actor": "hero2",
+          "damage": 9,
+          "effect": "FREEZE",
+          "emojis": [
+              "🛡️",
+              "😴"
+          ],
+          "basePower": 12,
+          "timestamp": "2025-02-08T20:10:40.605Z",
+          "actionType": "DEFEND",
+          "targetType": "DEFENSIVE",
+          "description": "Creates an energy barrier while recovering from stun",
+          "judgeCommentary": "OIIA Cat's defensive posture is timely, effectively countering the spin attack and creating an opportunity for a swift counterstrike. Note: I chose \"FREEZE\" as the Special Effect because the energy barrier move creates a momentary pause in the action, allowing OIIA Cat to recover from the stun effect and potentially turn the tide of battle.",
+          "tacticalReasoning": "Stabilizing defenses as stun effects wear off"
+      }
+  },
+  {
+      "id": "cm6wmr9gl000evdie4j6zn08k",
+      "turnIndex": 14,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 8,
+          "effects": [
+              {
+                  "type": "FREEZE",
+                  "damage": 3,
+                  "duration": 2,
+                  "modifier": 0.8,
+                  "turnAdded": 13,
+                  "validUntilTurn": 15
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 76,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 14,
+                  "validUntilTurn": 16
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "☁️😒🔥 Farhan the Chill-smoker's ATTACK:\nQuickly fires a concentrated blast of smoke bombs\nDamage: 12 (OIIA Cat's HP: 88 → 76)\nEffect: STUN applied!\nSpecial Meters - Farhan the Chill-smoker: 100%, OIIA Cat: 100%\nTactical Analysis: Targeting opponent's energy barrier to break their stun recovery\nJudge's Commentary: Farhan's smoke bomb effectively disrupts the opponent's energy barrier, setting up a prime opportunity for Farhan to capitalize on their stun recovery and deal significant damage while they're vulnerable. A critical hit!",
+      "action": {
+          "crit": true,
+          "miss": false,
+          "turn": 14,
+          "actor": "hero1",
+          "damage": 12,
+          "effect": "STUN",
+          "emojis": [
+              "☁️",
+              "😒",
+              "🔥"
+          ],
+          "basePower": 15,
+          "timestamp": "2025-02-08T20:10:45.283Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Quickly fires a concentrated blast of smoke bombs",
+          "judgeCommentary": "Farhan's smoke bomb effectively disrupts the opponent's energy barrier, setting up a prime opportunity for Farhan to capitalize on their stun recovery and deal significant damage while they're vulnerable. A critical hit!",
+          "tacticalReasoning": "Targeting opponent's energy barrier to break their stun recovery"
+      }
+  },
+  {
+      "id": "cm6wmreo7000fvdiejh6kj5hj",
+      "turnIndex": 15,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 0,
+          "effects": [
+              {
+                  "type": "FREEZE",
+                  "damage": 3,
+                  "duration": 2,
+                  "modifier": 0.8,
+                  "turnAdded": 13,
+                  "validUntilTurn": 15
+              },
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 15,
+                  "validUntilTurn": 17
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 76,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 14,
+                  "validUntilTurn": 16
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "🎶🔊👀 OIIA Cat's ATTACK:\nFires a barrage of sonic waves, shattering Farhan's smoke field\nDamage: 12 (Farhan the Chill-smoker's HP: 8 → 0)\nEffect: STUN applied!\nSpecial Meters - OIIA Cat: 100%, Farhan the Chill-smoker: 100%\nTactical Analysis: Neutralizing the chill-smoker's advantage with audio-based counterattack\nJudge's Commentary: OIIA Cat's attack effectively utilizes the opportunity to strike back at Farhan, capitalizing on his brief stun window after being disoriented by smoke bombs. The base power of 15 is moderate but sufficient to deal damage while also delivering a status effect that can hinder Farhan's ability to recover quickly. 0.8",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 15,
+          "actor": "hero2",
+          "damage": 12,
+          "effect": "STUN",
+          "emojis": [
+              "🎶",
+              "🔊",
+              "👀"
+          ],
+          "basePower": 15,
+          "timestamp": "2025-02-08T20:10:52.037Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Fires a barrage of sonic waves, shattering Farhan's smoke field",
+          "judgeCommentary": "OIIA Cat's attack effectively utilizes the opportunity to strike back at Farhan, capitalizing on his brief stun window after being disoriented by smoke bombs. The base power of 15 is moderate but sufficient to deal damage while also delivering a status effect that can hinder Farhan's ability to recover quickly. 0.8",
+          "tacticalReasoning": "Neutralizing the chill-smoker's advantage with audio-based counterattack"
+      }
+  },
+  {
+      "id": "cm6wmrh0l000gvdie3eh381jc",
+      "turnIndex": 15,
+      "battleId": "battle-room-1-MsnNT",
+      "hero1State": {
+          "hp": 0,
+          "effects": [
+              {
+                  "type": "FREEZE",
+                  "damage": 3,
+                  "duration": 2,
+                  "modifier": 0.8,
+                  "turnAdded": 13,
+                  "validUntilTurn": 15
+              },
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 15,
+                  "validUntilTurn": 17
+              }
+          ],
+          "specialMeter": 100
+      },
+      "hero2State": {
+          "hp": 76,
+          "effects": [
+              {
+                  "type": "STUN",
+                  "damage": 0,
+                  "duration": 2,
+                  "modifier": 0.7,
+                  "turnAdded": 14,
+                  "validUntilTurn": 16
+              }
+          ],
+          "specialMeter": 100
+      },
+      "commentary": "🏆 FINAL BLOW: OIIA Cat emerges victorious over Farhan the Chill-smoker! 🏆\n\nBattle Statistics:\n- Total Turns: 15\n- Most Used Action: ATTACK\n- Highest Damage: 19 (Turn 2)\n- Status Effects Applied: 12\n- Special Moves Used: 0\n\nOIIA Cat claims victory after an epic battle!",
+      "action": {
+          "crit": false,
+          "miss": false,
+          "turn": 15,
+          "actor": "hero2",
+          "damage": 12,
+          "effect": "STUN",
+          "emojis": [
+              "🎶",
+              "🔊",
+              "👀"
+          ],
+          "basePower": 15,
+          "timestamp": "2025-02-08T20:10:52.037Z",
+          "actionType": "ATTACK",
+          "targetType": "OFFENSIVE",
+          "description": "Fires a barrage of sonic waves, shattering Farhan's smoke field",
+          "judgeCommentary": "OIIA Cat's attack effectively utilizes the opportunity to strike back at Farhan, capitalizing on his brief stun window after being disoriented by smoke bombs. The base power of 15 is moderate but sufficient to deal damage while also delivering a status effect that can hinder Farhan's ability to recover quickly. 0.8",
+          "tacticalReasoning": "Neutralizing the chill-smoker's advantage with audio-based counterattack"
+      }
+  }
+]

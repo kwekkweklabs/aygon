@@ -1,15 +1,16 @@
-import React from 'react';
-import { Trophy, Skull } from 'lucide-react';
+import React from "react";
+import { Trophy, Skull } from "lucide-react";
 
 export default function HeroCard({
   name = "Lyra Shadowbane",
   imageUrl = "/placeholder.svg?height=300&width=200",
   desc = "A description",
   winCount = 0,
-  loseCount = 0
+  loseCount = 0,
 }) {
   const totalGames = winCount + loseCount;
-  const winRate = totalGames > 0 ? Math.round((winCount / totalGames) * 100) : 0;
+  const winRate =
+    totalGames > 0 ? Math.round((winCount / totalGames) * 100) : 0;
 
   return (
     <div className="w-full bg-neutral-900 rounded-xl overflow-hidden shadow-lg border border-neutral-700 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-purple-500">
