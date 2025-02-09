@@ -56,6 +56,9 @@ export default function CreateHeroButton({
       console.log('Create hero response:', res.data);
 
       refetchHero();
+      setName('');
+      setDescription('');
+      setImageUrl(null);
       setOpenCreateDialog(false);
     } catch (error) {
       console.error('Error creating hero:', error);
