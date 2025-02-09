@@ -5,12 +5,11 @@ import { privy } from '../../lib/privy.js';
 
 export const authMiddleware = async (request, reply) => {
   const token = request.headers.authorization.split(' ')[1];
-  console.log('Token:', token);
+  // console.log('Token:', token);
 
   let authData = null;
   try {
     const verifiedClaims = await privy.verifyAuthToken(token);
-    console.log('Verified claims:', verifiedClaims);
 
     authData = verifiedClaims;
   } catch (error) {

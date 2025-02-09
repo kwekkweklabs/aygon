@@ -21,7 +21,6 @@ export const authRoutes = (app, _, done) => {
 
       try {
         const verifiedClaims = await privy.verifyAuthToken(token);
-        console.log('Verified claims:', verifiedClaims);
         authData = verifiedClaims;
       } catch (error) {
         console.log(`Token verification failed with error ${error}.`);
