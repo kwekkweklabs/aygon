@@ -25,8 +25,8 @@ export default function CreateHeroButton({
         return;
       }
 
-      if (description.length > 50) {
-        setError('Description must be less than 50 characters');
+      if (description.length > 100) {
+        setError('Description must be less than 100 characters');
         return;
       }
 
@@ -109,12 +109,12 @@ export default function CreateHeroButton({
                   label='Description'
                   placeholder='Enter your hero description. 50 characters max.'
                   labelPlacement='outside'
-                  maxLength={50}
+                  maxLength={100}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                 />
                 <div className='text-sm text-right opacity-60 mt-1'>
-                  {description.length} / 50
+                  {description.length} / 100
                 </div>
               </div>
 
