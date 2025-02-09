@@ -78,11 +78,12 @@ export default function RoomPage() {
 
         {/* {currentRoom?.state === "WAITING" && <IdleRoom />} */}
 
-        {currentRoom?.state === "PLAYING" && (
+        {currentRoom?.state === "PLAYING" ||
+        currentRoom?.state === "FINISHED" ? (
           <div ref={playingRef} className="w-full">
             <BattleVisualizer currentRoomId={currentRoom?.currentBattleId} />
           </div>
-        )}
+        ) : null}
 
         {/* <Button>LEAVE</Button> */}
       </div>
