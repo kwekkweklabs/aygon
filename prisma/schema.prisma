@@ -67,6 +67,8 @@ model Battle {
   hero1 Hero @relation("Hero1", fields: [hero1Id], references: [id])
   hero2 Hero @relation("Hero2", fields: [hero2Id], references: [id])
 
+  prizeTxHash String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

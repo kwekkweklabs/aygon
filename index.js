@@ -12,6 +12,7 @@ import { heroRoutes } from "./src/routes/heroRoutes.js";
 import { roomRoutes } from "./src/routes/roomRoutes.js";
 import { battleRoutes } from "./src/routes/battleRoutes.js";
 import { authRoutes } from "./src/routes/authRoutes.js";
+import { walletRoutes } from "./src/routes/walletRoutes.js";
 export { COMBAT_ACTIONS } from './src/constants/types.js';
 export { BATTLE_EVENTS } from './src/constants/types.js';
 
@@ -55,6 +56,10 @@ fastify.register(battleRoutes, {
 
 fastify.register(coreRoutes, {
   prefix: '/core',
+})
+
+fastify.register(walletRoutes, {
+  prefix: 'wallet'
 })
 
 // // Example usage:

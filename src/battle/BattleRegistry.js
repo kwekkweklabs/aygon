@@ -1,4 +1,5 @@
 import { prismaQuery } from "../../lib/prisma.js";
+import { sendPrizeMoney } from "../visualization/utils/walletUtils.js";
 import { BattleManager } from "./BattleManager.js";
 
 export class BattleRegistry {
@@ -133,6 +134,7 @@ export class BattleRegistry {
             select: {
               user: {
                 select: {
+                  id: true,
                   privyWalletAddress: true
                 }
               }
@@ -142,6 +144,7 @@ export class BattleRegistry {
             select: {
               user: {
                 select: {
+                  id: true,
                   privyWalletAddress: true
                 }
               }
@@ -180,20 +183,39 @@ export class BattleRegistry {
 
       // TODO: Trigger payment transaction here
       let winnerAddress = null;
+      let winnerUserId = null
       if (winnerId === battle.hero1Id) {
         winnerAddress = battle.hero1.user.privyWalletAddress;
+        winnerUserId = battle.hero1.user.id;
       } else if (winnerId === battle.hero2Id) {
         winnerAddress = battle.hero2.user.privyWalletAddress;
+        winnerUserId = battle.hero2.user.id;
       }
 
       let loserAddress = null;
+      let loserUserId = null
       if (winnerId !== battle.hero1Id) {
         loserAddress = battle.hero1.user.privyWalletAddress;
+        loserUserId = battle.hero1.user.id;
       } else if (winnerId !== battle.hero2Id) {
         loserAddress = battle.hero2.user.privyWalletAddress;
+        loserUserId = battle.hero2.user.id;
       }
 
       console.log(`TRANSFER FUNDS: ${winnerAddress} -> ${loserAddress}`);
+      console.log({
+        winnerUserId,
+        loserUserId
+      })
+      try {
+        await sendPrizeMoney({
+          battleId: battleId,
+          loserUserId: loserUserId,
+          winnerUserId: winnerUserId,
+        })
+      } catch (error) {
+        console.log('Error on sendPrizeMoney', error);
+      }
 
       return; // Exit early to prevent creating new battle state
     } catch (err) {
