@@ -1,3 +1,4 @@
+import { AygonSDKProvider } from "@/lib/aygon-sdk/context";
 import AuthProvider from "@/providers/AuthProvider";
 import { PrivyProvider } from "@privy-io/react-auth";
 import { Outlet } from "react-router";
@@ -18,8 +19,8 @@ export default function AppLayout() {
             "phantom",
             "solflare",
             "backpack",
-            "okx_wallet"
-          ]
+            "okx_wallet",
+          ],
         },
         loginMethods: [
           "email",
@@ -27,26 +28,28 @@ export default function AppLayout() {
         ],
         fundingMethodConfig: {
           moonpay: {
-            useSandbox: true
-          }
+            useSandbox: true,
+          },
         },
         embeddedWallets: {
           requireUserPasswordOnCreate: false,
           showWalletUIs: true,
           ethereum: {
-            createOnLogin: "off"
+            createOnLogin: "off",
           },
           solana: {
-            createOnLogin: "off"
-          }
+            createOnLogin: "off",
+          },
         },
         mfa: {
-          noPromptOnMfaRequired: false
+          noPromptOnMfaRequired: false,
         },
       }}
     >
       <AuthProvider>
-        <Outlet />
+        <AygonSDKProvider>
+          <Outlet />
+        </AygonSDKProvider>
       </AuthProvider>
     </PrivyProvider>
   );
