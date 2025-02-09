@@ -70,13 +70,13 @@ function Hero() {
     <section className="h-[calc(100vh-48px)] w-full flex flex-col items-center justify-center px-6">
       <div className="rounded-t-[40px] h-full w-full flex flex-col items-center relative overflow-hidden">
         <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,#000,transparent)] size-full">
-          <ParallaxImage imageUrl={heroBgSrc} className="size-full" />
+          <ParallaxImage speed={2} imageUrl={heroBgSrc} className="size-full" />
         </div>
 
         {/* <div className="absolute inset-0 size-full bg-gradient-to-t from-blue-500/20 to-transparent"></div> */}
 
         <div className="w-full flex items-center justify-between p-10 relative">
-          <div className="font-bold font-poppins">AYGON</div>
+          <img src="/aygon-logo.png" alt="" className="w-28 z-10" />
           <div className="font-bold font-poppins flex items-center gap-4">
             <button>Home</button>
             <button>About</button>
@@ -110,10 +110,10 @@ function Hero() {
 
         {/* emojis */}
         <div className="text-7xl absolute top-[20%] -translate-y-1/2 right-[30%] -rotate-6">
-          👊
+          <Parallax speed={-4}>👊</Parallax>
         </div>
         <div className="text-7xl absolute bottom-[10%] -translate-y-1/2 left-[30%] -rotate-6">
-          🤖
+          <Parallax speed={3}>🤖</Parallax>
         </div>
 
         {/* cards */}
@@ -123,7 +123,7 @@ function Hero() {
           </Parallax>
         </div>
         <div className="absolute top-1/2 -translate-y-1/2 right-32 rotate-12">
-          <Parallax speed={3}>
+          <Parallax speed={3} rotate={4}>
             <CharCard
               imageUrl={jinxSrc}
               name="Lumina Flux"

@@ -16,7 +16,14 @@ export default function App() {
             {/* Define another route or layout here */}
           </Route>
           <Route element={<AppLayout />}>
-            <Route path="play" element={<ProtectedRoute><LazyPlayPage /></ProtectedRoute>} />
+            <Route
+              path="play"
+              element={
+                <ProtectedRoute>
+                  <LazyPlayPage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="login" element={<LazyLoginPage />} />
           </Route>
         </Routes>
