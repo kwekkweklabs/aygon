@@ -54,6 +54,8 @@ export const battleRoutes = (app, _, done) => {
         model: 'gpt-4o',
         apiKey: process.env.OPENAI_API_KEY
       });
+      // const aiProvider = new AIProvider('gaia', {
+      // });
 
 
       // Create battle and get the battle instance

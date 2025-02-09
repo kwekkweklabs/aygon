@@ -11,6 +11,7 @@ import { prismaQuery } from "./lib/prisma.js";
 import { heroRoutes } from "./src/routes/heroRoutes.js";
 import { roomRoutes } from "./src/routes/roomRoutes.js";
 import { battleRoutes } from "./src/routes/battleRoutes.js";
+import { authRoutes } from "./src/routes/authRoutes.js";
 export { COMBAT_ACTIONS } from './src/constants/types.js';
 export { BATTLE_EVENTS } from './src/constants/types.js';
 
@@ -35,6 +36,10 @@ fastify.get("/", async (request, reply) => {
     data: null,
   });
 });
+
+fastify.register(authRoutes, {
+  prefix: '/auth',
+})
 
 fastify.register(heroRoutes, {
   prefix: '/hero',
@@ -153,8 +158,8 @@ const seedData = async () => {
     {
       id: 'room-1',
       name: 'Room 1',
-      hero1Id: 'cm6wde48n0008vd95uwkus09h',
-      hero2Id: 'cm6wdghfa000avd952611shcb',
+      hero1Id: 'cm6wouzbg0001vdceovhwyfix',
+      hero2Id: 'cm6wowgl60001vdbj6dvegzju',
     },
     {
       id: 'room-2',
@@ -186,6 +191,7 @@ const seedData = async () => {
     });
   }
 
+  console.log('Seed data complete');
 }
 
 // seedData().catch(error => {
