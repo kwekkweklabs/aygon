@@ -1,3 +1,4 @@
+import Navbar from "@/components/play/Navbar";
 import { AygonSDKProvider } from "@/lib/aygon-sdk/context";
 import AuthProvider from "@/providers/AuthProvider";
 import { PrivyProvider } from "@privy-io/react-auth";
@@ -12,7 +13,7 @@ export default function AppLayout() {
           accentColor: "#344cb7",
           theme: "#101827",
           showWalletLoginFirst: false,
-          logo: "https://auth.privy.io/logos/privy-logo-dark.png",
+          logo: "https://i.ibb.co.com/TBy7nndr/aygon-logo.png",
           walletChainType: "ethereum-and-solana",
           walletList: [
             "detected_wallets",
@@ -48,7 +49,10 @@ export default function AppLayout() {
     >
       <AuthProvider>
         <AygonSDKProvider>
-          <Outlet />
+          <Navbar />
+          <div className="mt-8">
+            <Outlet />
+          </div>
         </AygonSDKProvider>
       </AuthProvider>
     </PrivyProvider>

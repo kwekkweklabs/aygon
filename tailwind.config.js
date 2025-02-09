@@ -81,16 +81,45 @@ export default {
       animation: {
         marquee: "marquee var(--duration) linear infinite",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+        'clash-left': 'clash-left 1.2s infinite ease-in-out',
+        'clash-right': 'clash-right 1.2s infinite ease-in-out'
       },
       keyframes: {
         marquee: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(calc(-100% - var(--gap)))" },
         },
+        float: {
+          '0%, 100%': {
+            transform: 'translateY(-50%) translateX(0px) rotate(-12deg)',
+          },
+          '50%': {
+            transform: 'translateY(-50%) translateX(-5px) rotate(-12deg)',
+          },
+        },
+        shake: {
+          '0%, 100%': {
+            transform: 'translateY(-50%) rotate(-12deg)',
+          },
+          '25%': {
+            transform: 'translateY(-50%) rotate(-14deg)',
+          },
+          '75%': {
+            transform: 'translateY(-50%) rotate(-10deg)',
+          },
+        },
         "marquee-vertical": {
           from: { transform: "translateY(0)" },
           to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
+        'clash-left': {
+          '0%, 100%': { transform: 'translate(-144px, -50%) rotate(-12deg)' },
+          '50%': { transform: 'translate(-80px, -50%) rotate(-6deg)' }
+        },
+        'clash-right': {
+          '0%, 100%': { transform: 'translate(16px, -50%) rotate(12deg)' },
+          '50%': { transform: 'translate(80px, -50%) rotate(6deg)' }
+        }
       },
     },
   },
