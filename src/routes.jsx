@@ -6,6 +6,7 @@ const _LazyIndexLayout = lazy(() => import("./layouts/IndexLayout"));
 const _LazyIndexPage = lazy(() => import("./pages/IndexPage"));
 const _LazyPlayPage = lazy(() => import("./pages/PlayPage"));
 const _LazyLoginPage = lazy(() => import("./pages/LoginPage"));
+const _LazyRoomPage = lazy(() => import("./pages/RoomPage"));
 
 const LazyRouteLoadingSpinner = () => {
   return (
@@ -36,5 +37,12 @@ export const LazyPlayPage = () => (
 export const LazyLoginPage = () => (
   <Suspended loading={<LazyRouteLoadingSpinner />}>
     <_LazyLoginPage />
+  </Suspended>
+);
+
+
+export const LazyRoomPage = () => (
+  <Suspended loading={<LazyRouteLoadingSpinner />}>
+    <_LazyRoomPage />
   </Suspended>
 );

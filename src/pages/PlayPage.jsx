@@ -82,6 +82,7 @@ export default function PlayPage() {
                     hero2={room.hero2}
                     name={room.name}
                     state={room.state}
+                    roomId={room.id}
                   />
                 ))}
               </div>

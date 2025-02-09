@@ -1,7 +1,10 @@
 import React from 'react';
 import { Swords, Users, Clock } from 'lucide-react';
+import { Button } from '@heroui/react';
+import { useNavigate } from 'react-router';
 
-export default function RoomCard({ 
+export default function RoomCard({
+  roomId = null,
   name = "Room 1",
   hero1 = null,
   hero2 = null,
@@ -29,6 +32,7 @@ export default function RoomCard({
   };
 
   const status = statusConfig[state] || statusConfig.WAITING;
+  const navigate = useNavigate();
 
   return (
     <div className="w-full bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800 shadow-lg hover:border-purple-500/50 transition-all duration-300">
@@ -49,8 +53,8 @@ export default function RoomCard({
             <div className="absolute top-1/2 -translate-y-1/2 -rotate-12 transform transition-transform duration-300 hover:scale-105 hover:-rotate-6 z-10 left-[4rem]">
               <div className="w-40 bg-neutral-800 rounded-lg overflow-hidden border-2 border-purple-500/50 shadow-lg">
                 <div className="aspect-square">
-                  <img 
-                    src={hero1?.image || "/placeholder.svg"} 
+                  <img
+                    src={hero1?.image || "/placeholder.svg"}
                     alt={hero1?.name || "Empty slot"}
                     className="w-full h-full object-cover"
                   />
@@ -75,8 +79,8 @@ export default function RoomCard({
             <div className="absolute top-1/2 -translate-y-1/2 rotate-12 transform transition-transform duration-300 hover:scale-105 hover:rotate-6 z-10 right-[4rem]">
               <div className="w-40 bg-neutral-800 rounded-lg overflow-hidden border-2 border-purple-500/50 shadow-lg">
                 <div className="aspect-square">
-                  <img 
-                    src={hero2?.image || "/placeholder.svg"} 
+                  <img
+                    src={hero2?.image || "/placeholder.svg"}
                     alt={hero2?.name || "Empty slot"}
                     className="w-full h-full object-cover"
                   />
@@ -98,10 +102,16 @@ export default function RoomCard({
 
       {/* Action Button */}
       <div className="p-4 pt-0 mt-4">
-        <button className="w-full px-4 py-2 rounded-lg bg-purple-500 hover:bg-purple-600 text-white font-medium transition-colors duration-200 flex items-center justify-center gap-2">
+        <Button
+          size='lg'
+          className="w-full px-4 py-2 rounded-lg bg-purple-500 hover:bg-purple-600 text-white font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+          onPress={() => {
+            navigate(`/room/${roomId}`);
+          }}
+        >
           <Users size={16} />
           Join Battle
-        </button>
+        </Button>
       </div>
     </div>
   );
