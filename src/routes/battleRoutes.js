@@ -140,9 +140,37 @@ export const battleRoutes = (app, _, done) => {
         }
       });
 
-      return reply.status(200).send(battleStates);
+      const battle = await prismaQuery.battle.findUnique({
+        where: {
+          id: battleId
+        },
+        include: {
+          hero1: {
+            select: {
+              id: true,
+              name: true,
+              description: true,
+              image: true
+            }
+          },
+          hero2: {
+            select: {
+              id: true,
+              name: true,
+              description: true,
+              image: true
+            }
+          }
+        }
+      })
 
+      const data = {
+        hero1: battle.hero1,
+        hero2: battle.hero2,
+        states: battleStates
+      }
 
+      return reply.status(200).send(data);
     } catch (error) {
       console.error('Error in /battle/states:', error);
       return reply.status(500).send({
