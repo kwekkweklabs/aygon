@@ -2,7 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import RootProvider from "./providers/RootProvider";
 import IndexLayout from "./layouts/IndexLayout";
 import IndexPage from "./pages/IndexPage";
-import { LazyLoginPage, LazyPlayBattlePage, LazyPlayPage, LazyRoomPage } from "./routes";
+import {
+  LazyLoginPage,
+  LazyPlayBattlePage,
+  LazyPlayPage,
+  LazyRoomPage,
+} from "./routes";
 import AppLayout from "./layouts/AppLayout";
 import { ProtectedRoute } from "./providers/AuthProvider";
 import { RoomProvider } from "./providers/RoomProvider";
@@ -17,7 +22,13 @@ export default function App() {
             <Route index element={<IndexPage />} />
             {/* Define another route or layout here */}
           </Route>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <SoundProvider>
+                <AppLayout />
+              </SoundProvider>
+            }
+          >
             <Route
               path="/play"
               element={
@@ -31,9 +42,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <RoomProvider>
-                    <SoundProvider>
-                      <LazyRoomPage />
-                    </SoundProvider>
+                    <LazyRoomPage />
                   </RoomProvider>
                 </ProtectedRoute>
               }
