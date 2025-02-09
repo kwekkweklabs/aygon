@@ -165,9 +165,26 @@ export const battleRoutes = (app, _, done) => {
         }
       })
 
+      // Make that the states items, add isFinished on the last item IF the battle is finished, if no, add isFinished false to all
+      if (battle.status === 'FINISHED') {
+        for (let i = 0; i < battleStates.length - 1; i++) {
+          battleStates[i].isFinished = false;
+        }
+
+        battleStates[battleStates.length - 1].isFinished = true;
+      }else{
+        for (let i = 0; i < battleStates.length; i++) {
+          battleStates[i].isFinished = false;
+        }
+      }
+
       const data = {
         hero1: battle.hero1,
         hero2: battle.hero2,
+        battle: {
+          status: battle.status,
+          winnerHeroId: battle.winnerHeroId,
+        },
         states: battleStates
       }
 

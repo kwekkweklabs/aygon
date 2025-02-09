@@ -26,8 +26,8 @@ export const sendPrizeMoney = async ({
   amount = 0.001
 }) => {
   try {
-    
+    console.log(`Sending ${amount} ETH to ${winnerUserId} from ${loserUserId}`);
   } catch (error) {
-    
+    console.log('Error on sendPrizeMoney', error);
   }
 }
