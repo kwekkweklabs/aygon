@@ -126,7 +126,7 @@ export class BattleRegistry {
     try {
       const battle = await prismaQuery.battle.findUnique({
         where: { id: battleId },
-        select:{
+        select: {
           hero1Id: true,
           hero2Id: true,
           hero1: {
@@ -158,14 +158,23 @@ export class BattleRegistry {
       }
       await prismaQuery.battle.update({
         where: { id: battleId },
-        data: { 
-          status: 'FINISHED' ,
+        data: {
+          status: 'FINISHED',
           winnerHeroId: winnerId
         }
       });
 
       // Clean up the battle from memory
       this.deleteBattle(battleId);
+
+      // Empty the room
+      await prismaQuery.room.update({
+        where: { currentBattleId: battleId },
+        data: {
+          // hero1Id: null,
+          hero2Id: null,
+        }
+      });
 
       // TODO: Trigger payment transaction here
       let winnerAddress = null;

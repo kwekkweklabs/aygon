@@ -1,6 +1,7 @@
 import { prismaQuery } from '../../lib/prisma.js';
 import { authMiddleware } from '../middlewares/authMiddleware.js';
 import { validateRequiredFields } from '../utils/miscUtils.js';
+import { handleStartBattle } from './battleRoutes.js';
 
 /**
  *
@@ -151,6 +152,15 @@ export const roomRoutes = (app, _, done) => {
         });
       }
 
+      // Can't be the same hero
+      if(room.hero1Id === heroId && room.hero2Id === heroId){
+        return reply.status(400).send({
+          message: 'Can\'t join the same hero',
+          error: null,
+          data: null,
+        });
+      }
+
       if (room.hero1Id === heroId || room.hero2Id === heroId) {
         return reply.status(400).send({
           message: 'Hero already joined the room',
@@ -175,6 +185,19 @@ export const roomRoutes = (app, _, done) => {
           error: null,
           data: null,
         });
+      }
+
+      // If both heroes are joined, start the battle
+      const currRoom = await prismaQuery.room.findUnique({
+        where: {
+          id: roomId
+        }
+      })
+
+      if (currRoom.hero1Id && currRoom.hero2Id) {
+        // Start the battle
+        console.log("START BATTLE BECAUSE BOTH HEROES JOINED");
+        const createdBattle = await handleStartBattle(roomId);
       }
 
       return reply.status(200).send({
