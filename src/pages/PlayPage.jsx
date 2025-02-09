@@ -1,10 +1,13 @@
+import StarfieldEffect from "@/components/elements/StarfieldEffect";
+import CreateHeroButton from "@/components/play/CreateHeroButton";
 import HeroCard from "@/components/play/HeroCard";
 import RoomCard from "@/components/play/RoomCard";
 import { useAygonQuery } from "@/lib/aygon-sdk/query";
-import { Skeleton } from "@heroui/react";
+import { Button, Skeleton } from "@heroui/react";
+import { Canvas } from "@react-three/fiber";
 
 export default function PlayPage() {
-  const { data: heroList, isLoading: isHeroListLoading } = useAygonQuery({
+  const { data: heroList, isLoading: isHeroListLoading, refetch: refetchHero } = useAygonQuery({
     queryKey: ["hero-list"],
     queryFn: async ({ sdk, context }) => {
       const res = await sdk.getUserHeroes({ signal: context.signal });
@@ -22,10 +25,23 @@ export default function PlayPage() {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center py-20 px-5">
-      <div className="w-full max-w-4xl flex flex-col items-center">
+      <div className="w-full h-screen fixed z-[0]">
+        <Canvas>
+          <StarfieldEffect />
+        </Canvas>
+      </div>
+
+      <div className="w-full max-w-4xl flex flex-col items-center z-20 relative">
         {/* Heroes */}
         <div className="w-full flex flex-col gap-6">
-          <p className="font-poppins font-semibold text-2xl">My Heroes</p>
+          <div className="flex flex-row items-center justify-between">
+            <p className="font-poppins font-semibold text-2xl">My Heroes</p>
+
+            <CreateHeroButton 
+              refetchHero={refetchHero}
+            />
+          </div>
+
           <Skeleton
             isLoaded={!isHeroListLoading}
             className="dark rounded-2xl min-h-[300px]"
@@ -75,3 +91,4 @@ export default function PlayPage() {
     </div>
   );
 }
+
