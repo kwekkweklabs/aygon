@@ -1,6 +1,7 @@
 import { Swords, Users, Clock } from "lucide-react";
 import { Button } from "@heroui/react";
 import { useNavigate } from "react-router";
+import { cnm } from "@/utils/style";
 
 export default function RoomCard({
   roomId = null,
@@ -57,7 +58,7 @@ export default function RoomCard({
                   <img
                     src={hero1?.image || "/placeholder.svg"}
                     alt={hero1?.name || "Empty slot"}
-                    className="w-full h-full object-cover"
+                    className={cnm("w-full h-full object-cover", !hero1?.image && "opacity-0")}
                   />
                 </div>
                 <div className="p-2 bg-neutral-900/90">
@@ -83,7 +84,7 @@ export default function RoomCard({
                   <img
                     src={hero2?.image || "/placeholder.svg"}
                     alt={hero2?.name || "Empty slot"}
-                    className="w-full h-full object-cover"
+                    className={cnm("w-full h-full object-cover", !hero2?.image && "opacity-0")}
                   />
                 </div>
                 <div className="p-2 bg-neutral-900/90">
@@ -111,7 +112,7 @@ export default function RoomCard({
           }}
         >
           <Users size={16} />
-          Join Battle
+          Join Battle (0.01 ETH Bet)
         </Button>
       </div>
     </div>

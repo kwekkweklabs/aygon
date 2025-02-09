@@ -78,8 +78,8 @@ function Hero() {
         <div className="w-full flex items-center justify-between p-10 relative">
           <img src="/aygon-logo.png" alt="" className="w-28 z-10" />
           <div className="font-bold font-poppins flex items-center gap-4">
-            <button>Home</button>
-            <button>About</button>
+            {/* <button>Home</button> */}
+            {/* <button>About</button> */}
           </div>
         </div>
         <div className="flex flex-col items-center mt-28 relative">
@@ -102,6 +102,16 @@ function Hero() {
               Play Now
             </p>
           </Link>
+
+          <div className="flex flex-col items-center mt-16">
+            <h2 className="text-xl font-semibold">
+              Powered by
+            </h2>
+
+            <div className="text-3xl mt-4">
+              GaiaNet, Privy, and Covalent
+            </div>
+          </div>
         </div>
 
         <div className="absolute bottom-0 text-white font-poppins rounded-t-2xl px-6 py-6 font-semibold flex items-center gap-2">
@@ -117,12 +127,12 @@ function Hero() {
         </div>
 
         {/* cards */}
-        <div className="absolute top-[40%] -translate-y-1/2 left-32 -rotate-6">
+        {/* <div className="absolute top-[40%] -translate-y-1/2 left-32 -rotate-6">
           <Parallax speed={-3}>
             <CharCard imageUrl={jinxSrc} />
           </Parallax>
-        </div>
-        <div className="absolute top-1/2 -translate-y-1/2 right-32 rotate-12">
+        </div> */}
+        {/* <div className="absolute top-1/2 -translate-y-1/2 right-32 rotate-12">
           <Parallax speed={3} rotate={4}>
             <CharCard
               imageUrl={jinxSrc}
@@ -130,7 +140,7 @@ function Hero() {
               class="Cosmos Fighter"
             />
           </Parallax>
-        </div>
+        </div> */}
       </div>
     </section>
   );
@@ -146,8 +156,8 @@ function Features() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
           <FeatureCard
             icon={<Zap className="w-12 h-12 text-yellow-400" />}
-            title="Upgrade your hero"
-            description="Enhance your character with powerful upgrades and unique abilities. Customize your hero to fit your playstyle and dominate the battlefield."
+            title="Create ANY hero"
+            description="Anything! Basically anything you can think of, you can create it."
           />
           <FeatureCard
             icon={<Brain className="w-12 h-12 text-blue-400" />}

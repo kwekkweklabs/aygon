@@ -6,6 +6,7 @@ import { LazyLoginPage, LazyPlayBattlePage, LazyPlayPage, LazyRoomPage } from ".
 import AppLayout from "./layouts/AppLayout";
 import { ProtectedRoute } from "./providers/AuthProvider";
 import { RoomProvider } from "./providers/RoomProvider";
+import { SoundProvider } from "./providers/SoundEngineProvider";
 
 export default function App() {
   return (
@@ -30,7 +31,9 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <RoomProvider>
-                    <LazyRoomPage />
+                    <SoundProvider>
+                      <LazyRoomPage />
+                    </SoundProvider>
                   </RoomProvider>
                 </ProtectedRoute>
               }

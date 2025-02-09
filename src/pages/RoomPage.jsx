@@ -2,6 +2,7 @@ import StarfieldEffect from "@/components/elements/StarfieldEffect";
 import BattleVisualizer from "@/components/play/BattleVisualizer";
 import { useAuth } from "@/providers/AuthProvider";
 import { useRoom } from "@/providers/RoomProvider";
+import { useGameSound } from "@/providers/SoundEngineProvider";
 import {
   Button,
   Modal,
@@ -16,8 +17,9 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 
 export default function RoomPage() {
-  const { currentRoom } = useRoom();
   const playingRef = useRef();
+  const { currentRoom } = useRoom();
+  const { playSound, playBgMusic, stopBgMusic } = useGameSound();
 
   useEffect(() => {
     if (currentRoom?.state === "PLAYING") {
@@ -39,6 +41,27 @@ export default function RoomPage() {
           <Castle />
           {currentRoom?.name}
         </h1>
+        <Button
+          onPress={() => {
+            playSound(["quack.mp3", "nya-cute-girl.mp3", "bomb-explode.mp3"]);
+          }}
+        >
+          Test Sound
+        </Button>
+        <Button
+          onPress={() => {
+            playBgMusic();
+          }}
+        >
+          Play BG
+        </Button>
+        <Button
+          onPress={() => {
+            stopBgMusic();
+          }}
+        >
+          Stop BG
+        </Button>
         {/* <div className='mt-8'>
           <RoomStateVisualizer />
         </div> */}
@@ -59,6 +82,8 @@ export default function RoomPage() {
             <BattleVisualizer currentRoomId={currentRoom?.currentBattleId} />
           </div>
         )}
+
+        <Button>LEAVE</Button>
       </div>
     </div>
   );
